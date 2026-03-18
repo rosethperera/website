@@ -658,25 +658,12 @@ function ResumePage() {
         </header>
 
         <section className="resume-block">
-          <h2>Summary</h2>
-          <p>
-            Electrical Engineering student at UW-Madison focused on the balance between
-            technological growth and environmental responsibility, with long-term
-            interests in sustainable infrastructure, energy systems, embedded
-            technologies, robotics, and the future of computing infrastructure.
-          </p>
-        </section>
-
-        <section className="resume-block">
-          <h2>Resume Viewer</h2>
           <div className="resume-viewer-shell">
-            <object className="resume-viewer" data="./Roseth-Perera-Resume.pdf" type="application/pdf">
-              <iframe
-                className="resume-viewer"
-                src="./Roseth-Perera-Resume.pdf"
-                title="Roseth Perera Resume PDF"
-              />
-            </object>
+            <iframe
+              className="resume-viewer"
+              src="./Roseth-Perera-Resume.pdf#view=FitH"
+              title="Roseth Perera Resume PDF"
+            />
           </div>
         </section>
 
