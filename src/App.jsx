@@ -379,7 +379,7 @@ function HomePage({ section }) {
             <div className="portrait-card">
               <img
                 className="portrait-image"
-                src="./profile-headshot.jpg"
+                src="./1740278787950.jpg"
                 alt="Portrait of Roseth Perera"
                 onError={(event) => {
                   event.currentTarget.style.display = "none";
@@ -392,7 +392,7 @@ function HomePage({ section }) {
               </div>
               <div className="portrait-caption">
                 <p className="eyebrow">Portrait</p>
-                <p>Add `public/profile-headshot.jpg` to place your final professional headshot here.</p>
+                <p>Electrical Engineering student at UW-Madison.</p>
               </div>
             </div>
 
@@ -409,7 +409,7 @@ function HomePage({ section }) {
         <section className="content-section two-column" id="about">
           <div className="section-heading reveal">
             <p className="eyebrow">About</p>
-            <h2>A personal story with a technical direction behind it.</h2>
+            <h2>Background and direction.</h2>
           </div>
           <div className="section-panel story-panel reveal">
             <p>
@@ -436,7 +436,7 @@ function HomePage({ section }) {
         <section className="content-section" id="projects">
           <div className="section-heading reveal">
             <p className="eyebrow">Selected Projects</p>
-            <h2>Projects that act as evidence, not filler.</h2>
+            <h2>Selected engineering projects.</h2>
           </div>
           <div className="project-grid">
             {featuredProjects.map((project) => (
@@ -462,7 +462,7 @@ function HomePage({ section }) {
         <section className="content-section two-column" id="experience">
           <div className="section-heading reveal">
             <p className="eyebrow">Technical Experience</p>
-            <h2>Engineering roles that connect directly to the systems I want to build.</h2>
+            <h2>Technical roles and engineering involvement.</h2>
           </div>
           <div className="experience-list">
             {experiences.map((item) => (

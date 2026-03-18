@@ -116,7 +116,15 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 0.95rem;
+  padding: 0.5rem 0.8rem 0.5rem 0.35rem;
+  border: 1px solid rgba(198, 166, 171, 0.1);
+  border-radius: 1.15rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .brand strong,
@@ -138,15 +146,36 @@ ul {
 }
 
 .brand-mark {
-  width: 0.9rem;
+  width: 2.5rem;
   height: 2.5rem;
-  border-radius: 999px;
+  border-radius: 0.95rem;
   background:
-    linear-gradient(180deg, rgba(202, 255, 229, 0.96), rgba(82, 186, 168, 0.3)),
-    linear-gradient(90deg, #d8fff3, #65a9a0);
+    radial-gradient(circle at 35% 25%, rgba(234, 255, 245, 0.92), transparent 28%),
+    linear-gradient(180deg, rgba(210, 255, 238, 0.95), rgba(82, 186, 168, 0.16)),
+    linear-gradient(135deg, rgba(118, 210, 191, 0.24), rgba(139, 33, 52, 0.52));
   box-shadow:
     0 0 0 1px rgba(180, 241, 227, 0.22),
-    0 0 24px rgba(82, 186, 168, 0.28);
+    0 0 24px rgba(82, 186, 168, 0.2);
+}
+
+.brand-mark::before,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.brand-mark::before {
+  inset: 22% 42% 22% 18%;
+  border-left: 2px solid rgba(255, 255, 255, 0.85);
+  border-right: 2px solid rgba(255, 255, 255, 0.34);
+}
+
+.brand-mark::after {
+  inset: 24% 22% 24% 42%;
+  border-left: 2px solid rgba(111, 210, 189, 0.7);
+  border-right: 2px solid rgba(255, 255, 255, 0.72);
 }
 
 .site-nav {
@@ -402,7 +431,8 @@ ul {
   object-fit: cover;
   border-radius: 0.95rem;
   border: 1px solid rgba(158, 202, 194, 0.18);
-  filter: saturate(0.96) contrast(1.03);
+  filter: saturate(0.92) contrast(1.05);
+  object-position: center 22%;
 }
 
 .portrait-fallback {
