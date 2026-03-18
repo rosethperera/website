@@ -500,7 +500,7 @@ function HomePage({ section }) {
         <section className="content-section vision-section" id="vision">
           <div className="section-heading reveal">
             <p className="eyebrow">What I&apos;m Building Toward</p>
-            <h2>Energy, scale, and responsibility in the systems behind growth.</h2>
+            <h2>Long-term technical direction.</h2>
           </div>
           <div className="section-panel vision-panel reveal">
             <p>
@@ -521,7 +521,7 @@ function HomePage({ section }) {
         <section className="content-section" id="skills">
           <div className="section-heading reveal">
             <p className="eyebrow">Selected Skills</p>
-            <h2>Organized around engineering work, not keyword stuffing.</h2>
+            <h2>Technical skills and focus areas.</h2>
           </div>
           <div className="skill-grid">
             {skillGroups.map((group) => (
@@ -540,7 +540,7 @@ function HomePage({ section }) {
         <section className="content-section" id="awards">
           <div className="section-heading reveal">
             <p className="eyebrow">Honors and Awards</p>
-            <h2>Scholarships and milestones that mark the path so far.</h2>
+            <h2>Scholarships and academic recognition.</h2>
           </div>
           <div className="experience-list">
             {awards.map((item) => (
@@ -575,7 +575,7 @@ function HomePage({ section }) {
         <section className="content-section contact-section" id="contact">
           <div className="section-heading reveal">
             <p className="eyebrow">Contact</p>
-            <h2>Easy to reach, easy to remember, and easy to act on.</h2>
+            <h2>Contact and links.</h2>
           </div>
           <div className="section-panel contact-panel reveal">
             <p>
