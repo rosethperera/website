@@ -137,6 +137,59 @@ const experiences = [
   },
 ];
 
+const professionalExperience = [
+  {
+    title: "Incoming Software Development Engineer Intern",
+    org: "Amazon",
+    date: "Summer 2026",
+    text:
+      "Joining Amazon as a Software Development Engineer Intern, adding software experience to a broader engineering path centered on systems, infrastructure, and long-term technical growth.",
+  },
+  {
+    title: "Food Service Worker",
+    org: "University of Wisconsin-Madison Housing",
+    date: "Aug 2025 - Sep 2025",
+    text:
+      "Supported high-volume campus dining operations in a fast-paced environment, building consistency, reliability, and day-to-day operational discipline.",
+  },
+  {
+    title: "Swim Instructor / Head Coach / Lifeguard",
+    org: "Goldfish Swim School",
+    date: "Mar 2024 - Aug 2025",
+    text:
+      "Led pool deck operations, taught swim lessons across different learning needs, and built leadership under real-time responsibility and safety pressure.",
+  },
+  {
+    title: "Lifeguard",
+    org: "Park Ridge Country Club",
+    date: "Jun 2024 - Jun 2025",
+    text:
+      "Maintained safety standards, responded quickly in critical situations, and strengthened communication and accountability in a safety-focused environment.",
+  },
+  {
+    title: "Volunteer Project Leader",
+    org: "Teens Who Care Sri Lanka",
+    date: "2021 - 2023",
+    text:
+      "Led student efforts supporting rural schools during an economic crisis, coordinating logistics, communication, and mission-driven project execution.",
+  },
+];
+
+const awards = [
+  {
+    title: "Amazon Future Engineer Scholarship",
+    date: "May 2025",
+    text:
+      "Awarded for academic excellence, leadership, and commitment to STEM, including long-term scholarship support and an Amazon internship pathway.",
+  },
+  {
+    title: "Park Ridge Rotary Make a Difference Scholarship",
+    date: "Apr 2025",
+    text:
+      "Recognized for leadership, empathy, work ethic, and community impact.",
+  },
+];
+
 const skillGroups = [
   {
     title: "Engineering",
@@ -310,6 +363,7 @@ function HomePage({ section }) {
           </div>
 
           <div className="hero-visual reveal">
+            <div className="hero-wave-field" aria-hidden="true" />
             <div className="orbital-shell" aria-hidden="true">
               <div className="orbital-ring orbital-ring-large" />
               <div className="orbital-ring orbital-ring-medium" />
@@ -323,6 +377,16 @@ function HomePage({ section }) {
             </div>
 
             <div className="portrait-card">
+              <img
+                className="portrait-image"
+                src="./profile-headshot.jpg"
+                alt="Portrait of Roseth Perera"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                  const fallback = event.currentTarget.nextElementSibling;
+                  if (fallback) fallback.style.display = "grid";
+                }}
+              />
               <div className="portrait-fallback" aria-label="Portrait placeholder">
                 <span>RP</span>
               </div>
@@ -381,6 +445,7 @@ function HomePage({ section }) {
                   <span>{project.category}</span>
                   <span>{project.slug.toUpperCase()}</span>
                 </div>
+                <ProjectScene slug={project.slug} />
                 <h3>{project.title}</h3>
                 <p className="project-impact">{project.impact}</p>
                 <p>{project.summary}</p>
@@ -396,11 +461,30 @@ function HomePage({ section }) {
 
         <section className="content-section two-column" id="experience">
           <div className="section-heading reveal">
-            <p className="eyebrow">Experience</p>
-            <h2>Technical involvement with a clear through-line.</h2>
+            <p className="eyebrow">Technical Experience</p>
+            <h2>Engineering roles that connect directly to the systems I want to build.</h2>
           </div>
           <div className="experience-list">
             {experiences.map((item) => (
+              <article className="experience-card reveal" key={`${item.title}-${item.date}`}>
+                <div className="experience-meta">
+                  <h3>{item.title}</h3>
+                  <span>{item.date}</span>
+                </div>
+                <p className="experience-org">{item.org}</p>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section two-column" id="professional-experience">
+          <div className="section-heading reveal">
+            <p className="eyebrow">Professional Experience</p>
+            <h2>Leadership, responsibility, and work experience outside core technical roles.</h2>
+          </div>
+          <div className="experience-list">
+            {professionalExperience.map((item) => (
               <article className="experience-card reveal" key={`${item.title}-${item.date}`}>
                 <div className="experience-meta">
                   <h3>{item.title}</h3>
@@ -453,6 +537,24 @@ function HomePage({ section }) {
           </div>
         </section>
 
+        <section className="content-section" id="awards">
+          <div className="section-heading reveal">
+            <p className="eyebrow">Honors and Awards</p>
+            <h2>Scholarships and milestones that mark the path so far.</h2>
+          </div>
+          <div className="experience-list">
+            {awards.map((item) => (
+              <article className="experience-card reveal" key={item.title}>
+                <div className="experience-meta">
+                  <h3>{item.title}</h3>
+                  <span>{item.date}</span>
+                </div>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="content-section" id="resume">
           <div className="section-panel contact-panel reveal">
             <div>
@@ -492,6 +594,42 @@ function HomePage({ section }) {
           </div>
         </section>
       </main>
+    </div>
+  );
+}
+
+function ProjectScene({ slug }) {
+  return (
+    <div className={`project-scene project-scene-${slug}`} aria-hidden="true">
+      {slug === "carbon-aware-ai-scheduler" && (
+        <>
+          <span className="scene-floor" />
+          <span className="scene-server server-one" />
+          <span className="scene-server server-two" />
+          <span className="scene-server server-three" />
+          <span className="scene-ring" />
+        </>
+      )}
+      {slug === "battery-telemetry" && (
+        <>
+          <span className="scene-floor" />
+          <span className="scene-battery" />
+          <span className="scene-battery-cap" />
+          <span className="scene-chip" />
+          <span className="scene-wire" />
+        </>
+      )}
+      {slug === "vex-competition-rover" && (
+        <>
+          <span className="scene-floor" />
+          <span className="scene-rover-body" />
+          <span className="scene-rover-top" />
+          <span className="scene-wheel wheel-one" />
+          <span className="scene-wheel wheel-two" />
+          <span className="scene-wheel wheel-three" />
+          <span className="scene-wheel wheel-four" />
+        </>
+      )}
     </div>
   );
 }
