@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battery Telemetry | Roseth Perera</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell project-page">
+      <section class="section">
+        <p class="eyebrow">Project Detail</p>
+        <h1 class="project-title">Battery Telemetry - State of Charge Tracking</h1>
+        <p class="project-lead">
+          A 24V LiFePO4 telemetry system built to measure battery voltage and current,
+          estimate state of charge in real time, and stream data to an NVIDIA Jetson.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="index.html#projects">Back to Projects</a>
+          <a class="button button-secondary" href="https://github.com/rosethperera" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+
+      <section class="section project-grid">
+        <article class="panel">
+          <p class="card-label">Overview</p>
+          <p>
+            This project focused on making battery health and usage more visible through
+            telemetry. It involved combining sensing hardware, signal conditioning, and
+            software logic to track state of charge and detect battery swaps.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="card-label">Key Work</p>
+          <ul class="project-list">
+            <li>Measured battery voltage and current using ADCs and signal conditioning.</li>
+            <li>Implemented real-time state-of-charge estimation logic.</li>
+            <li>Added battery-swap detection for more reliable tracking behavior.</li>
+            <li>Streamed telemetry over UART to an NVIDIA Jetson for logging and analysis.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="card-label">Technologies</p>
+          <p>Embedded telemetry, ADCs, signal conditioning, UART communication, NVIDIA Jetson, battery monitoring</p>
+        </article>
+        <article class="panel">
+          <p class="card-label">Why It Matters</p>
+          <p>
+            The project demonstrates a strong hardware-software connection: taking real
+            measurements from a physical battery system and converting them into useful,
+            trackable operating information.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

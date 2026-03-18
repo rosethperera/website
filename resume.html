@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roseth Perera | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        background: linear-gradient(180deg, #0a1220 0%, #09111d 100%);
+      }
+
+      .resume-page {
+        width: min(calc(100% - 32px), 900px);
+        margin: 32px auto;
+        padding: 32px;
+        border: 1px solid rgba(164, 195, 255, 0.16);
+        border-radius: 28px;
+        background: rgba(11, 20, 33, 0.92);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      }
+
+      .resume-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: flex-start;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(164, 195, 255, 0.16);
+      }
+
+      .resume-header p {
+        margin: 10px 0 0;
+      }
+
+      .resume-block {
+        padding: 28px 0 0;
+      }
+
+      .resume-block h2 {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+      }
+
+      .resume-item {
+        padding: 18px 0;
+        border-top: 1px solid rgba(164, 195, 255, 0.12);
+      }
+
+      .resume-item:first-of-type {
+        border-top: 0;
+      }
+
+      .resume-item-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: baseline;
+      }
+
+      .resume-list {
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+
+      .resume-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      @media print {
+        body::before,
+        .resume-actions {
+          display: none;
+        }
+
+        body {
+          background: #ffffff;
+          color: #111111;
+        }
+
+        .resume-page {
+          width: 100%;
+          margin: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: #ffffff;
+        }
+
+        p,
+        li {
+          color: #222222;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .resume-page {
+          width: min(calc(100% - 20px), 900px);
+          padding: 22px;
+        }
+
+        .resume-header,
+        .resume-item-header {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume-page">
+      <header class="resume-header">
+        <div>
+          <p class="eyebrow">Resume</p>
+          <h1 style="font-size: clamp(2.2rem, 6vw, 3.6rem); max-width: none;">Roseth Perera</h1>
+          <p>
+            Electrical Engineering student with interests in software, embedded systems,
+            robotics, and energy-aware engineering.
+          </p>
+        </div>
+        <div>
+          <p>(815) 582-0961</p>
+          <p>rosethbinuwara@gmail.com</p>
+          <p>linkedin.com/in/roseth-perera</p>
+          <p>github.com/rosethperera</p>
+        </div>
+      </header>
+
+      <section class="resume-block">
+        <h2>Professional Summary</h2>
+        <p>
+          Electrical Engineering student at the University of Wisconsin-Madison with
+          hands-on experience in software development, battery telemetry, robotics, and
+          energy-focused systems. Brings a practical builder mindset, strong
+          follow-through, and leadership experience across technical and service roles.
+        </p>
+      </section>
+
+      <section class="resume-block">
+        <h2>Education</h2>
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>University of Wisconsin-Madison</h3>
+            <p>Aug 2025 - May 2029</p>
+          </div>
+          <p>B.S. Electrical Engineering, Minor in Engineering for Energy Sustainability</p>
+          <p>
+            Relevant Coursework: CS 200 (Programming I), ECE 252 (Intro to Computer
+            Engineering), Physics 201, AP Physics C, AP Calculus BC, ECE 210 (Intro to
+            Electrical Engineering)
+          </p>
+        </article>
+      </section>
+
+      <section class="resume-block">
+        <h2>Experience</h2>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Software Development Engineer Intern, Amazon.com Services LLC</h3>
+            <p>May 2026 - Aug 2026</p>
+          </div>
+          <ul class="resume-list">
+            <li>Selected for the Amazon Future Engineer software development internship program.</li>
+            <li>Internship based at SEA24 in Seattle for Summer 2026.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Food Service Worker, University of Wisconsin-Madison Housing</h3>
+            <p>Aug 2025 - Nov 2025</p>
+          </div>
+          <ul class="resume-list">
+            <li>Supported high-volume dining operations through food preparation, customer service, and sanitation.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Deck Supervisor / Lifeguard, Goldfish Swim School</h3>
+            <p>Mar 2024 - Aug 2025</p>
+          </div>
+          <ul class="resume-list">
+            <li>Supervised pool deck operations and enforced safety procedures in a high-attendance facility.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Lifeguard, Park Ridge Country Club</h3>
+            <p>Jun 2024 - Jun 2025</p>
+          </div>
+          <ul class="resume-list">
+            <li>Maintained swimmer safety and enforced pool regulations during daily operations.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Volunteer Project Leader, Teens Who Care Sri Lanka</h3>
+            <p>Nov 2021 - Sep 2023</p>
+          </div>
+          <ul class="resume-list">
+            <li>Led student teams to raise funds and deliver supplies to rural schools during an economic crisis.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="resume-block">
+        <h2>Projects</h2>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Carbon-Aware AI Scheduler</h3>
+            <p>Feb 2026 - Apr 2026</p>
+          </div>
+          <ul class="resume-list">
+            <li>Built a Python-based scheduler that fetches live grid carbon-intensity forecasts and ranks lower-emission execution windows for AI workloads.</li>
+            <li>Integrated NVIDIA GPU power profiling with <code>nvidia-smi</code> to estimate workload energy usage.</li>
+            <li>Developed an end-to-end CLI workflow that reports top schedule alternatives and estimated emissions savings.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>Battery Telemetry - State of Charge Tracking</h3>
+            <p>Sep 2025 - May 2026</p>
+          </div>
+          <ul class="resume-list">
+            <li>Built a 24V LiFePO4 telemetry system measuring battery voltage and current using ADCs and signal conditioning.</li>
+            <li>Implemented real-time state-of-charge estimation and battery-swap detection logic.</li>
+            <li>Streamed telemetry to an NVIDIA Jetson via UART for logging and analysis.</li>
+          </ul>
+        </article>
+
+        <article class="resume-item">
+          <div class="resume-item-header">
+            <h3>VEX Competition Rover</h3>
+            <p>Aug 2024 - May 2025</p>
+          </div>
+          <ul class="resume-list">
+            <li>Led design and build of a rover with conveyor intake and internal storage mechanism.</li>
+            <li>Improved reliability through iterative testing, redesign, and troubleshooting across the season.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="resume-block">
+        <h2>Skills</h2>
+        <p>Programming: Java, Python</p>
+        <p>Tools: MATLAB, Fusion 360, Microsoft Office</p>
+        <p>Technical: CAD Design, Prototyping, Robotics Build & Testing, Soldering, PCB Fundamentals</p>
+        <p>Languages: English (Fluent), Sinhala (Fluent), Tamil (Elementary)</p>
+      </section>
+
+      <section class="resume-block">
+        <h2>Activities</h2>
+        <p>
+          Wisconsin Robotics (Electrical Team) - Member, Engineers Without Borders -
+          Member, Robotics Team (High School) - Captain, Varsity Water Polo (High
+          School) - Captain, Math Team (High School) - Captain
+        </p>
+      </section>
+
+      <div class="resume-actions">
+        <a class="button button-primary" href="index.html">Back to Portfolio</a>
+        <a class="button button-secondary" href="Roseth-Perera-Resume.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+        <button class="button button-secondary" type="button" onclick="window.print()">Print Resume</button>
+      </div>
+    </main>
+  </body>
+</html>

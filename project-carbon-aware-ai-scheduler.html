@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carbon-Aware AI Scheduler | Roseth Perera</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell project-page">
+      <section class="section">
+        <p class="eyebrow">Project Detail</p>
+        <h1 class="project-title">Carbon-Aware AI Scheduler</h1>
+        <p class="project-lead">
+          A Python-based scheduler that uses live grid carbon-intensity forecasts and
+          GPU energy estimates to recommend lower-emission execution windows for AI workloads.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="index.html#projects">Back to Projects</a>
+          <a class="button button-secondary" href="https://github.com/rosethperera" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+
+      <section class="section project-grid">
+        <article class="panel">
+          <p class="card-label">Overview</p>
+          <p>
+            This project explored how AI workloads can be scheduled more responsibly by
+            considering when electricity on the grid is cleaner. The scheduler evaluates
+            forecasted carbon intensity, runtime constraints, and deadlines to identify
+            strong candidate windows for execution.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="card-label">Key Work</p>
+          <ul class="project-list">
+            <li>Fetched live carbon-intensity forecast data for candidate execution windows.</li>
+            <li>Integrated NVIDIA GPU power profiling with <code>nvidia-smi</code>.</li>
+            <li>Estimated energy usage and translated it into emissions-aware scheduling decisions.</li>
+            <li>Produced ranked schedule alternatives and estimated emissions savings through a CLI workflow.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="card-label">Technologies</p>
+          <p>Python, CLI tooling, forecast data integration, NVIDIA GPU profiling, emissions analysis</p>
+        </article>
+        <article class="panel">
+          <p class="card-label">Why It Matters</p>
+          <p>
+            The project combines software engineering with sustainability by showing how
+            infrastructure decisions can reduce emissions without ignoring practical
+            constraints like runtime and deadlines.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
