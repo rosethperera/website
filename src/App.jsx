@@ -37,6 +37,41 @@ const featuredProjects = [
     ],
   },
   {
+    slug: "eco-dispatch",
+    category: "Sustainable infrastructure",
+    title: "EcoDispatch",
+    impact:
+      "A carbon-aware data center optimization concept focused on cutting emissions without ignoring cost or hardware realities.",
+    summary:
+      "The project explores multi-objective optimization for data center operations, combining carbon-aware scheduling, workload shifting, and hardware-aware decision making into one system direction.",
+    role:
+      "I framed the system concept, defined the carbon-aware optimization focus, and shaped how workload timing, emissions reduction, and operational tradeoffs fit together.",
+    stack: ["Python", "Optimization", "Carbon-aware scheduling", "Workload shifting", "Infrastructure systems"],
+    systemDesign: [
+      "Model workload placement and timing as an optimization problem instead of a fixed schedule.",
+      "Balance emissions and cost goals through multi-objective decision logic.",
+      "Shift flexible workloads toward cleaner execution windows when system constraints allow it.",
+      "Connect software decisions with hardware-aware operating assumptions for data center environments.",
+    ],
+    challenges: [
+      "Balancing sustainability goals against practical operating constraints.",
+      "Turning a broad infrastructure idea into a system with clear optimization priorities.",
+      "Keeping the project direction ambitious while still grounded in implementable logic.",
+    ],
+    results: [
+      "Extended my carbon-aware computing work from single-job scheduling toward broader infrastructure optimization.",
+      "Created a stronger systems-oriented project story around energy, workloads, and real-world tradeoffs.",
+      "Built a foundation for future work in sustainable compute and data center engineering.",
+    ],
+    reflection:
+      "The next step is turning the concept into a deeper implementation with clearer inputs, measurable outputs, and stronger validation around optimization performance.",
+    metrics: [
+      "Multi-objective optimization direction",
+      "Workload shifting plus hardware integration",
+      "Repo cites 15-35% emissions reduction target",
+    ],
+  },
+  {
     slug: "battery-telemetry",
     category: "Embedded systems",
     title: "Battery Telemetry for Robotics",
@@ -69,40 +104,6 @@ const featuredProjects = [
       "ESP32-based 24 V LiFePO4 monitoring",
       "Real-time voltage/current telemetry",
       "Jetson communication for power management",
-    ],
-  },
-  {
-    slug: "vex-competition-rover",
-    category: "Robotics",
-    title: "VEX Competition Rover",
-    impact:
-      "A competition rover build shaped through testing, redesign, and reliability-focused iteration instead of one-shot assembly.",
-    summary:
-      "The work emphasized mechanism design, conveyor intake, internal storage, and improving performance through repeated physical testing and refinement.",
-    role:
-      "I worked on the rover design and build, including intake and storage mechanisms, troubleshooting, and iterative improvement across the season.",
-    stack: ["VEX", "Mechanical design", "Testing", "Iteration", "Competition systems"],
-    systemDesign: [
-      "Developed the rover platform around intake, storage, and repeatable match performance.",
-      "Iterated on packaging and mechanism behavior through physical testing.",
-      "Identified failure points and refined the design over time.",
-    ],
-    challenges: [
-      "Balancing packaging, mechanism function, and reliability.",
-      "Turning a concept into a system that performs repeatedly under pressure.",
-      "Improving the build fast enough to remain useful in a competition environment.",
-    ],
-    results: [
-      "Delivered a rover design with a conveyor intake and internal storage mechanism.",
-      "Improved reliability through iterative engineering instead of guesswork.",
-      "Built experience in hands-on systems thinking, prototyping, and rapid testing.",
-    ],
-    reflection:
-      "I want to keep moving toward robotics work where hardware behavior and telemetry are tied together more directly.",
-    metrics: [
-      "Iterative redesign through real testing",
-      "Mechanism-focused competition build",
-      "Hands-on robotics systems experience",
     ],
   },
 ];
@@ -619,15 +620,14 @@ function ProjectScene({ slug }) {
           <span className="scene-wire" />
         </>
       )}
-      {slug === "vex-competition-rover" && (
+      {slug === "eco-dispatch" && (
         <>
           <span className="scene-floor" />
-          <span className="scene-rover-body" />
-          <span className="scene-rover-top" />
-          <span className="scene-wheel wheel-one" />
-          <span className="scene-wheel wheel-two" />
-          <span className="scene-wheel wheel-three" />
-          <span className="scene-wheel wheel-four" />
+          <span className="scene-server server-one" />
+          <span className="scene-server server-three" />
+          <span className="scene-chip" />
+          <span className="scene-wire" />
+          <span className="scene-ring" />
         </>
       )}
     </div>
