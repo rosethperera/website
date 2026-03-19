@@ -41,34 +41,34 @@ const featuredProjects = [
     category: "Sustainable infrastructure",
     title: "EcoDispatch",
     impact:
-      "A carbon-aware data center optimization concept focused on cutting emissions without ignoring cost or hardware realities.",
+      "A data center scheduling project that decides when and where workloads should run to lower carbon emissions while still keeping costs and hardware limits in mind.",
     summary:
-      "The project explores multi-objective optimization for data center operations, combining carbon-aware scheduling, workload shifting, and hardware-aware decision making into one system direction.",
+      "EcoDispatch is built around a simple idea: not every compute job has to run immediately, and not every server location has the same carbon footprint. The project explores shifting flexible workloads to cleaner time windows or lower-emission regions, then comparing those options against cost and system constraints.",
     role:
-      "I framed the system concept, defined the carbon-aware optimization focus, and shaped how workload timing, emissions reduction, and operational tradeoffs fit together.",
+      "I designed the project direction, defined how the scheduler should weigh emissions, cost, and system constraints, and framed it as a more realistic data center operations problem rather than just a one-variable carbon demo.",
     stack: ["Python", "Optimization", "Carbon-aware scheduling", "Workload shifting", "Infrastructure systems"],
     systemDesign: [
-      "Model workload placement and timing as an optimization problem instead of a fixed schedule.",
-      "Balance emissions and cost goals through multi-objective decision logic.",
-      "Shift flexible workloads toward cleaner execution windows when system constraints allow it.",
-      "Connect software decisions with hardware-aware operating assumptions for data center environments.",
+      "Take in workload demand, carbon-intensity data, and operating constraints as scheduler inputs.",
+      "Identify jobs that can be delayed or moved without breaking deadlines or system requirements.",
+      "Compare scheduling options across emissions impact, operating cost, and available hardware capacity.",
+      "Recommend the cleaner execution plan instead of defaulting to immediate execution everywhere.",
     ],
     challenges: [
-      "Balancing sustainability goals against practical operating constraints.",
-      "Turning a broad infrastructure idea into a system with clear optimization priorities.",
-      "Keeping the project direction ambitious while still grounded in implementable logic.",
+      "Making the project concrete enough that someone can quickly understand what is being optimized.",
+      "Balancing sustainability goals against real operating constraints like deadlines and capacity.",
+      "Turning a broad data center idea into something structured like a real scheduler.",
     ],
     results: [
-      "Extended my carbon-aware computing work from single-job scheduling toward broader infrastructure optimization.",
-      "Created a stronger systems-oriented project story around energy, workloads, and real-world tradeoffs.",
-      "Built a foundation for future work in sustainable compute and data center engineering.",
+      "Expanded my carbon-aware work from a single-job scheduler into a broader data center operations idea.",
+      "Built a clearer systems project around workload shifting, infrastructure tradeoffs, and optimization.",
+      "Created a stronger foundation for future work in sustainable compute and large-scale infrastructure engineering.",
     ],
     reflection:
-      "The next step is turning the concept into a deeper implementation with clearer inputs, measurable outputs, and stronger validation around optimization performance.",
+      "The next step is making the scheduler more complete with clearer inputs, stronger optimization logic, and measurable comparisons between the default plan and the lower-emission plan.",
     metrics: [
-      "Multi-objective optimization direction",
-      "Workload shifting plus hardware integration",
-      "Repo cites 15-35% emissions reduction target",
+      "Shifts flexible workloads to cleaner windows or regions",
+      "Balances emissions, cost, and hardware capacity",
+      "Targets lower-emission data center operation",
     ],
   },
   {
