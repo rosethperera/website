@@ -731,21 +731,7 @@ function ProjectPage({ project }) {
           </div>
         </section>
 
-        {project.slug === "eco-dispatch" && (
-          <section className="content-section project-media-gallery">
-            <h2>Project Media</h2>
-            <div className="media-grid">
-              <figure>
-                <img src="/demo_dispatch.png" alt="EcoDispatch energy dispatch chart" />
-                <figcaption>Energy dispatch chart</figcaption>
-              </figure>
-              <figure>
-                <img src="/demo_battery_soc.png" alt="EcoDispatch battery state of charge chart" />
-                <figcaption>Battery state-of-charge chart</figcaption>
-              </figure>
-            </div>
-          </section>
-        )}
+        {project.slug === "eco-dispatch" && <EcoDispatchShowcase project={project} />}
 
         <section className="project-detail-grid content-section">
           <DetailCard title="My Role" content={project.role} />
@@ -779,6 +765,167 @@ function ListCard({ title, items }) {
         ))}
       </ul>
     </article>
+  );
+}
+
+function EcoDispatchShowcase({ project }) {
+  const overviewStats = [
+    { value: "27%", label: "Emissions reduction", detail: "Best optimized run vs. baseline grid-heavy dispatch." },
+    { value: "21%", label: "Cost savings", detail: "Lower energy cost by shifting when and how power is used." },
+    { value: "40%", label: "Renewables utilized", detail: "Solar and battery cover a much larger share of daily demand." },
+    { value: "1,800 kWh", label: "Flexible load shifted", detail: "Batchable compute moves into cleaner operating windows." },
+  ];
+
+  const workflowSteps = [
+    {
+      title: "Read system conditions",
+      text: "Load demand, solar availability, carbon intensity, and electricity price signals for each hour.",
+    },
+    {
+      title: "Score dispatch options",
+      text: "Compare grid, solar, and battery choices while respecting battery power, SOC, and reliability limits.",
+    },
+    {
+      title: "Shift flexible workloads",
+      text: "Move non-urgent compute toward lower-carbon hours instead of treating demand as fixed.",
+    },
+    {
+      title: "Execute and monitor",
+      text: "Expose decisions through the dashboard and connect to Arduino and Raspberry Pi hardware for validation.",
+    },
+  ];
+
+  return (
+    <>
+      <section className="content-section project-overview-strip">
+        <div className="metric-grid">
+          {overviewStats.map((stat) => (
+            <article className="metric-card" key={stat.label}>
+              <p className="metric-value">{stat.value}</p>
+              <p className="metric-label">{stat.label}</p>
+              <p className="metric-detail">{stat.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-section project-story-grid">
+        <div className="section-panel system-visual-panel">
+          <p className="eyebrow">System Flow</p>
+          <h2>How EcoDispatch makes each decision.</h2>
+          <div className="system-flow">
+            <div className="system-node">
+              <strong>Inputs</strong>
+              <span>Demand</span>
+              <span>Solar</span>
+              <span>Carbon</span>
+              <span>Price</span>
+            </div>
+            <div className="system-connector" aria-hidden="true" />
+            <div className="system-node">
+              <strong>Optimizer</strong>
+              <span>SciPy strategies</span>
+              <span>Battery limits</span>
+              <span>Shiftable load</span>
+            </div>
+            <div className="system-connector" aria-hidden="true" />
+            <div className="system-node">
+              <strong>Outputs</strong>
+              <span>Dispatch plan</span>
+              <span>Lower cost</span>
+              <span>Lower carbon</span>
+            </div>
+          </div>
+          <p className="system-visual-copy">
+            The project ties together time-series data, optimization logic, and physical constraints instead of
+            treating sustainability as a separate reporting layer.
+          </p>
+        </div>
+
+        <div className="workflow-grid">
+          {workflowSteps.map((step) => (
+            <article className="section-panel workflow-card" key={step.title}>
+              <p className="eyebrow">Step</p>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-section project-media-gallery">
+        <div className="section-heading project-media-heading">
+          <p className="eyebrow">Project Media</p>
+          <h2>A fuller look at what the platform actually does.</h2>
+          <p>
+            These visuals cover system inputs, optimization outcomes, and battery behavior so the page explains the
+            whole workflow instead of only showing one chart.
+          </p>
+        </div>
+        <div className="media-grid media-grid-rich">
+          <figure className="media-card media-card-wide">
+            <div className="media-frame">
+              <img src="/demo_dispatch.png" alt="EcoDispatch energy dispatch chart" />
+            </div>
+            <figcaption>
+              <strong>Energy dispatch timeline</strong>
+              <span>Shows how the system routes demand between grid, solar, and battery over the day.</span>
+            </figcaption>
+          </figure>
+          <figure className="media-card">
+            <div className="media-frame">
+              <img src="/demo_strategy_emissions.png" alt="EcoDispatch strategy emissions comparison chart" />
+            </div>
+            <figcaption>
+              <strong>Strategy comparison</strong>
+              <span>Compares emissions across baseline, carbon-min, cost-min, balanced, and optimized modes.</span>
+            </figcaption>
+          </figure>
+          <figure className="media-card">
+            <div className="media-frame">
+              <img src="/demo_operating_profile.png" alt="EcoDispatch operating profile chart" />
+            </div>
+            <figcaption>
+              <strong>Operating conditions</strong>
+              <span>Maps the demand curve against solar availability and grid carbon intensity.</span>
+            </figcaption>
+          </figure>
+          <figure className="media-card">
+            <div className="media-frame">
+              <img src="/demo_battery_soc.png" alt="EcoDispatch battery state of charge chart" />
+            </div>
+            <figcaption>
+              <strong>Battery state of charge</strong>
+              <span>Tracks how stored energy is preserved, discharged, and used as part of the optimization.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="content-section project-hardware-grid">
+        <article className="section-panel hardware-card">
+          <p className="eyebrow">Hardware Validation</p>
+          <h2>Simulation was designed with a path to real controls.</h2>
+          <p>
+            The hardware side connects Arduino-based battery telemetry with Raspberry Pi relay control so EcoDispatch
+            can move beyond a pure software demo.
+          </p>
+          <ul className="list-grid">
+            <li>Arduino monitors voltage, current, temperature, and state of charge.</li>
+            <li>Raspberry Pi receives battery data and can execute relay-based control logic.</li>
+            <li>Safety checks enforce SOC, voltage, and temperature limits before actions are taken.</li>
+          </ul>
+        </article>
+        <article className="section-panel">
+          <p className="eyebrow">Key Capabilities</p>
+          <ul className="list-grid">
+            {project.metrics.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+    </>
   );
 }
 
