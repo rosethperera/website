@@ -731,6 +731,22 @@ function ProjectPage({ project }) {
           </div>
         </section>
 
+        {project.slug === "eco-dispatch" && (
+          <section className="content-section project-media-gallery">
+            <h2>Project Media</h2>
+            <div className="media-grid">
+              <figure>
+                <img src="/demo_dispatch.png" alt="EcoDispatch energy dispatch chart" />
+                <figcaption>Energy dispatch chart</figcaption>
+              </figure>
+              <figure>
+                <img src="/demo_battery_soc.png" alt="EcoDispatch battery state of charge chart" />
+                <figcaption>Battery state-of-charge chart</figcaption>
+              </figure>
+            </div>
+          </section>
+        )}
+
         <section className="project-detail-grid content-section">
           <DetailCard title="My Role" content={project.role} />
           <ListCard title="Technical Stack" items={project.stack} />
