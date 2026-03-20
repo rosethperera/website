@@ -1052,7 +1052,7 @@ ul {
 
 .project-media-gallery {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .project-media-heading {
@@ -1072,7 +1072,7 @@ ul {
 
 .media-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .media-grid-rich {
@@ -1085,10 +1085,10 @@ ul {
 
 .media-card {
   margin: 0;
-  padding: 1.15rem;
+  padding: 0.95rem;
   border: 1px solid var(--border);
   border-radius: 1.5rem;
-  background: linear-gradient(180deg, rgba(20, 8, 11, 0.95), rgba(10, 7, 9, 0.88));
+  background: linear-gradient(180deg, rgba(18, 8, 11, 0.96), rgba(11, 8, 10, 0.92));
   box-shadow: var(--shadow-soft);
 }
 
@@ -1096,9 +1096,7 @@ ul {
   overflow: hidden;
   border-radius: 1rem;
   border: 1px solid rgba(198, 166, 171, 0.14);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-    rgba(255, 255, 255, 0.02);
+  background: rgba(8, 6, 7, 0.72);
 }
 
 .media-card img {
@@ -1113,7 +1111,7 @@ ul {
 .media-card figcaption {
   display: grid;
   gap: 0.35rem;
-  margin-top: 0.95rem;
+  margin-top: 0.75rem;
 }
 
 .media-card figcaption strong {
@@ -1123,8 +1121,8 @@ ul {
 
 .media-card figcaption span {
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .project-hardware-grid {
