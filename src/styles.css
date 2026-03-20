@@ -1029,6 +1029,27 @@ ul {
   font-size: 1.3rem;
 }
 
+.project-context-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.project-context-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-context-card h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.05;
+}
+
+.project-context-card p,
+.project-context-card li {
+  max-width: 44rem;
+}
+
 .project-media-gallery {
   display: grid;
   gap: 1.5rem;
@@ -1208,6 +1229,7 @@ ul {
   .project-detail-grid,
   .metric-grid,
   .project-story-grid,
+  .project-context-grid,
   .project-hardware-grid,
   .media-grid-rich {
     grid-template-columns: 1fr;
