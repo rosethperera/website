@@ -56,7 +56,7 @@ const featuredProjects = [
       "Prototype hardware hooks for Arduino battery telemetry and Raspberry Pi relay control concepts",
     ],
     challenges: [
-      "Implementing realistic physics models for solar generation and battery degradation that match real-world behavior",
+      "Implementing simplified physics-inspired models for solar generation and battery degradation that are useful for simulation",
       "Developing multi-objective optimization algorithms that effectively balance competing goals (carbon vs. cost vs. reliability)",
       "Creating an intuitive user interface that makes complex energy trade-offs understandable to non-experts",
       "Integrating time-series data from multiple APIs (carbon intensity, weather, electricity prices) with proper error handling",
@@ -65,10 +65,10 @@ const featuredProjects = [
     results: [
       "Built a working simulation platform that compares five dispatch strategies on a shared demand profile",
       "Added scenario presets so strategy differences are easier to inspect under realistic, stress-test, solar-rich, and volatile-market conditions",
-      "Made comparisons auditable by showing load served and unmet demand directly in the dashboard",
+      "Made comparisons auditable by reporting load served and unmet demand directly in the dashboard",
       "Integrated optional real weather plus optional Electricity Maps carbon and price inputs with synthetic fallback",
       "Added automated tests for the simulation and data-integration paths",
-      "Established a clear path from software simulation to hardware-monitoring demos",
+      "Established a prototype path from software simulation to hardware-monitoring demos",
     ],
     reflection:
       "The project is strongest as a transparent engineering prototype: it makes tradeoffs visible and testable without pretending the control logic is deployment-ready. The next honest steps would be better battery energy provenance tracking, stronger demand modeling, and a fuller multi-period optimization formulation.",
@@ -872,8 +872,8 @@ function EcoDispatchShowcase({ project }) {
             </div>
           </div>
           <p className="system-visual-copy">
-            The updated prototype is framed as a scenario-analysis tool, not a magical production optimizer. The point
-            is to make dispatch tradeoffs legible, comparable, and honest enough to inspect.
+            The updated prototype is framed as a scenario-analysis tool, not a production optimizer. The point is to
+            make dispatch tradeoffs legible, comparable, and honest enough to inspect.
           </p>
         </div>
 
@@ -923,7 +923,7 @@ function EcoDispatchShowcase({ project }) {
             </div>
             <figcaption>
               <strong>Strategy comparison</strong>
-              <span>Compares baseline, carbon-first, cost-first, balanced, and optimized runs using the same demand basis.</span>
+              <span>Compares baseline, carbon-first, cost-first, balanced, and optimized runs on the same demand basis.</span>
             </figcaption>
           </figure>
           <figure className="media-card">
@@ -958,7 +958,7 @@ function EcoDispatchShowcase({ project }) {
           </p>
           <ul className="list-grid">
             <li>Arduino monitors voltage, current, temperature, and state of charge.</li>
-            <li>Raspberry Pi receives battery data and can execute relay-based control logic.</li>
+            <li>Raspberry Pi prototype code receives battery data and includes relay-based control logic for demonstration purposes.</li>
             <li>Safety checks enforce SOC, voltage, and temperature limits before actions are taken.</li>
           </ul>
         </article>
