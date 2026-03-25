@@ -191,13 +191,25 @@ const awards = [
     title: "Amazon Future Engineer Scholarship",
     date: "May 2025",
     text:
-      "Awarded for academic excellence, leadership, and commitment to STEM, including long-term scholarship support and an Amazon internship pathway.",
+      "Issued by Amazon and associated with Maine East High School. Awarded for academic excellence, leadership, and commitment to computer science and STEM, with $40,000 in college scholarship support and a paid Amazon internship pathway.",
   },
   {
     title: "Park Ridge Rotary Make a Difference Scholarship",
     date: "Apr 2025",
     text:
-      "Recognized for leadership, empathy, work ethic, and community impact.",
+      "Issued by the Park Ridge Rotary Club and associated with Maine East High School. Awarded the club's top scholarship amount of $1,250 in recognition of empathy, leadership, work ethic, and community impact.",
+  },
+  {
+    title: "Sadie Rose Argus Scholarship",
+    date: "Apr 2025",
+    text:
+      "Issued by the Des Plaines Community Foundation and associated with Maine East High School. Awarded a $1,500 scholarship recognizing social service, community involvement, and academic achievement in the Des Plaines area.",
+  },
+  {
+    title: "Illinois State Scholar",
+    date: "Mar 2025",
+    text:
+      "Issued by the Illinois Student Assistance Commission and associated with Maine East High School. Recognized as an Illinois State Scholar for strong academic achievement.",
   },
 ];
 
