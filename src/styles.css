@@ -921,25 +921,35 @@ ul {
 }
 
 .project-page-hero .section-panel {
-  max-width: 72rem;
+  max-width: 66rem;
+  padding: 2.4rem 2.35rem 2.2rem;
+  display: grid;
+  gap: 1.1rem;
 }
 
 .project-page-hero p:not(.eyebrow):not(.project-impact) {
-  max-width: 60rem;
+  max-width: 52rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
 }
 
 .project-overview-strip {
-  margin-top: -1.5rem;
+  margin-top: -0.5rem;
 }
 
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.1rem;
+  align-items: stretch;
 }
 
 .metric-card {
-  padding: 1.2rem 1.15rem;
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-height: 18rem;
+  padding: 1.35rem 1.3rem 1.4rem;
   border: 1px solid var(--border);
   border-radius: 1.35rem;
   background:
@@ -951,21 +961,25 @@ ul {
 .metric-value {
   color: var(--text-strong);
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  line-height: 1;
+  font-size: clamp(2.4rem, 4.2vw, 3.3rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
 }
 
 .metric-label {
-  margin-top: 0.45rem;
+  margin-top: 0.2rem;
   color: var(--text-strong);
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 .metric-detail {
-  margin-top: 0.5rem;
+  margin-top: 0.15rem;
   color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 24ch;
 }
 
 .project-story-grid {
@@ -1016,7 +1030,8 @@ ul {
 
 .system-visual-copy {
   margin-top: 1rem;
-  max-width: 40rem;
+  max-width: 36rem;
+  color: var(--muted);
 }
 
 .workflow-grid {
@@ -1259,6 +1274,14 @@ ul {
   .resume-header-copy {
     text-align: left;
   }
+
+  .metric-card {
+    min-height: 0;
+  }
+
+  .project-page-hero .section-panel {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1303,6 +1326,15 @@ ul {
   }
 
   .metric-card {
-    padding: 1rem;
+    min-height: 0;
+    padding: 1.1rem;
+  }
+
+  .project-page-hero .section-panel {
+    padding: 1.55rem 1.25rem 1.4rem;
+  }
+
+  .project-page-hero p:not(.eyebrow):not(.project-impact) {
+    font-size: 0.98rem;
   }
 }
