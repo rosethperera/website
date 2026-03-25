@@ -6,34 +6,34 @@ const featuredProjects = [
     category: "Energy data and software",
     title: "Carbon-Aware AI Scheduler",
     impact:
-      "A forecast-driven scheduling workflow that shows AI jobs do not have to run the moment they are queued; by ranking cleaner execution windows, it turns workload timing into a practical emissions lever.",
+      "A Python scheduling workflow that ranks lower-emission execution windows for compute jobs instead of treating timing as a neutral decision.",
     summary:
-      "Built around Electricity Maps carbon-intensity forecasts for US-MIDW-MISO, the workflow estimates job energy from manual input or NVIDIA GPU sampling, filters windows by duration and deadline, and surfaces the cleanest valid run times with quantified emissions deltas.",
+      "Built around Electricity Maps forecast data for US-MIDW-MISO, the tool pulls carbon-intensity forecasts, applies deadline-aware ranking, and estimates job energy through either manual input or NVIDIA GPU power sampling.",
     role:
-      "I built the Python CLI workflow, connected forecast data, implemented the emissions-ranking logic, added deadline-aware filtering, and integrated NVIDIA GPU power sampling through nvidia-smi so the scheduling decision could start from observed workload behavior.",
+      "I built the Python CLI workflow, connected forecast data, implemented the emissions-ranking logic, added deadline filtering, and integrated NVIDIA GPU power sampling through nvidia-smi.",
     stack: ["Python", "Electricity Maps API", "pandas", "nvidia-smi", "CLI workflow"],
     systemDesign: [
-      "Fetch or refresh hourly carbon-intensity forecast data for the target grid region and store it locally as CSV.",
-      "Estimate job energy either from a manual kWh input or from sampled NVIDIA GPU power draw.",
-      "Enumerate every valid execution window that fits the requested duration and deadline.",
-      "Calculate average carbon intensity and total emissions for each candidate window, then rank the cleanest options.",
+      "Fetch or load hourly carbon-intensity forecast data into a local CSV workflow.",
+      "Estimate job energy either from manual input or GPU power sampling.",
+      "Evaluate valid scheduling windows based on duration, deadline, and emissions impact.",
+      "Rank top windows and report the spread between best and worst valid options.",
     ],
     challenges: [
-      "Balancing real scheduling constraints such as deadlines and fixed-duration jobs with a sustainability objective.",
-      "Turning raw forecast and GPU telemetry data into a scheduling recommendation that is easy to trust.",
-      "Keeping the workflow lightweight and explainable while still feeling like a real systems decision tool.",
+      "Balancing real scheduling constraints with a sustainability objective.",
+      "Turning raw forecast and energy data into a usable decision workflow.",
+      "Keeping the tool simple enough to explain clearly while still being technically meaningful.",
     ],
     results: [
-      "Built an end-to-end CLI flow that fetches forecasts, estimates energy, ranks windows, and prints the cleanest valid schedules.",
-      "Demonstrated that the sample 2.5 kWh, 2-hour job can vary by 29.4% emissions depending on when it runs.",
-      "Created a concrete infrastructure example of carbon-aware computing rather than a purely conceptual sustainability idea.",
+      "Produced ranked scheduling alternatives based on emissions-aware logic.",
+      "Created a concrete example of how systems thinking can improve infrastructure decisions.",
+      "Strengthened my interest in sustainable compute and future AI infrastructure engineering.",
     ],
     reflection:
-      "Next steps would include multi-region support, command-level workload profiling, cost-aware tradeoffs, and exportable outputs for automation or orchestration layers.",
+      "Next steps would include richer cost models, better visualization, and deeper assumptions around large-scale compute infrastructure.",
     metrics: [
-      "25 forecast hours scored per run",
-      "29.4% emissions spread across valid 2-hour windows",
-      "Manual input or NVIDIA GPU profiling for energy",
+      "Forecast-driven scheduling for US-MIDW-MISO",
+      "Manual energy input or NVIDIA GPU profiling",
+      "Single runner script for end-to-end workflow",
     ],
   },
   {
@@ -731,7 +731,6 @@ function ProjectPage({ project }) {
           </div>
         </section>
 
-        {project.slug === "carbon-aware-ai-scheduler" && <CarbonAwareSchedulerShowcase project={project} />}
         {project.slug === "eco-dispatch" && <EcoDispatchShowcase project={project} />}
 
         <section className="project-detail-grid content-section">
@@ -769,272 +768,53 @@ function ListCard({ title, items }) {
   );
 }
 
-function CarbonAwareSchedulerShowcase({ project }) {
-  const overviewStats = [
-    {
-      value: "25",
-      label: "Forecast hours ranked",
-      detail: "The sample workflow scores 25 hourly MISO forecast rows pulled into the project CSV.",
-    },
-    {
-      value: "29.4%",
-      label: "Potential CO2 reduction",
-      detail: "Best versus worst valid 2-hour window for the README's 2.5 kWh example workload.",
-    },
-    {
-      value: "274",
-      label: "gCO2/kWh swing",
-      detail: "The sample forecast ranges from 383 to 657 gCO2/kWh, so timing meaningfully changes impact.",
-    },
-    {
-      value: "28",
-      label: "GPU samples logged",
-      detail: "nvidia-smi power readings can be converted into job energy before the scheduler ranks windows.",
-    },
-  ];
-
-  const workflowSteps = [
-    {
-      title: "Collect grid conditions",
-      text: "Fetch or load hourly carbon-intensity forecasts for the target grid zone instead of assuming the grid looks the same all day.",
-    },
-    {
-      title: "Estimate job energy",
-      text: "Use a known kWh value or derive one from NVIDIA GPU power sampling so the scheduler works from workload behavior, not a guess.",
-    },
-    {
-      title: "Filter valid windows",
-      text: "Enumerate all start times that satisfy the requested duration and any deadline constraint, then discard infeasible options.",
-    },
-    {
-      title: "Rank emissions impact",
-      text: "Compute emissions for every candidate window, sort the cleanest options first, and report the spread between best and worst valid choices.",
-    },
-  ];
-
-  const problemCards = [
-    {
-      title: "The problem",
-      body:
-        "Most AI jobs run as soon as compute is available, even though the carbon intensity of electricity changes hour by hour. That means two identical workloads can carry very different emissions simply because they start at different times.",
-    },
-    {
-      title: "Why this project matters",
-      body:
-        "This is a small but realistic example of sustainable infrastructure thinking: it does not ask teams to stop computing, it asks whether flexible jobs can run when the grid is cleaner. That framing is useful for recruiters, platform engineers, and anyone thinking about the future of AI infrastructure.",
-    },
-  ];
-
-  const sourceCards = [
-    {
-      title: "Inputs and data sources",
-      items: [
-        "Electricity Maps forecast data for the US-MIDW-MISO region.",
-        "A local carbon forecast CSV used as the scheduler's immediate data source.",
-        "Manual job energy input for quick comparisons.",
-        "NVIDIA GPU power logs sampled through nvidia-smi when measured energy is preferred.",
-      ],
-    },
-    {
-      title: "Scheduling logic",
-      items: [
-        "Treat each forecast row as one hour of available execution time.",
-        "Slide a window across the forecast horizon for the requested duration.",
-        "Compute average carbon intensity and total emissions for every valid window.",
-        "Sort candidate windows by total emissions and expose the best options first.",
-      ],
-    },
-    {
-      title: "Emissions impact",
-      items: [
-        "For the sample 2.5 kWh, 2-hour job, the cleanest valid window emits 1092.50 gCO2.",
-        "The worst valid window for that same job emits 1547.50 gCO2.",
-        "That creates a 455.00 gCO2 spread, or about 29.4% lower emissions in the best case.",
-        "Longer durations still show meaningful gains, with 17.8% to 20.7% spreads in the sample data.",
-      ],
-    },
-  ];
-
-  return (
-    <>
-      <section className="content-section project-overview-strip">
-        <div className="metric-grid">
-          {overviewStats.map((stat) => (
-            <article className="metric-card" key={stat.label}>
-              <p className="metric-value">{stat.value}</p>
-              <p className="metric-label">{stat.label}</p>
-              <p className="metric-detail">{stat.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section project-story-grid">
-        <div className="section-panel system-visual-panel">
-          <p className="eyebrow">How It Works</p>
-          <h2>System flow from forecast data to ranked run times.</h2>
-          <div className="system-flow">
-            <div className="system-node">
-              <strong>Inputs</strong>
-              <span>Grid forecast</span>
-              <span>Job duration</span>
-              <span>Deadline</span>
-              <span>Energy estimate</span>
-            </div>
-            <div className="system-connector" aria-hidden="true" />
-            <div className="system-node">
-              <strong>Scheduler</strong>
-              <span>Window scan</span>
-              <span>Deadline filter</span>
-              <span>Emissions math</span>
-            </div>
-            <div className="system-connector" aria-hidden="true" />
-            <div className="system-node">
-              <strong>Outputs</strong>
-              <span>Best start times</span>
-              <span>CO2 comparison</span>
-              <span>Cleaner execution</span>
-            </div>
-          </div>
-          <p className="system-visual-copy">
-            The key idea is simple but useful: treat start time as an optimization decision, not as a fixed assumption.
-            This project packages that idea into a CLI workflow that is easy to explain and easy to extend.
-          </p>
-        </div>
-
-        <div className="workflow-grid">
-          {workflowSteps.map((step) => (
-            <article className="section-panel workflow-card" key={step.title}>
-              <p className="eyebrow">Step</p>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section project-context-grid">
-        {problemCards.map((card) => (
-          <article className="section-panel project-context-card" key={card.title}>
-            <p className="eyebrow">Context</p>
-            <h3>{card.title}</h3>
-            <p>{card.body}</p>
-          </article>
-        ))}
-        {sourceCards.map((card) => (
-          <article className="section-panel project-context-card" key={card.title}>
-            <p className="eyebrow">Deep Dive</p>
-            <h3>{card.title}</h3>
-            <ul className="list-grid">
-              {card.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </section>
-
-      <section className="content-section project-media-gallery">
-        <div className="section-heading project-media-heading">
-          <p className="eyebrow">Project Media</p>
-          <h2>Visuals generated from the real project data.</h2>
-          <p>
-            Instead of decorative screenshots, this gallery pulls directly from the scheduler repository's forecast and
-            GPU power logs to show what the workflow is actually reasoning about.
-          </p>
-        </div>
-        <div className="media-grid media-grid-rich">
-          <figure className="media-card media-card-wide">
-            <div className="media-frame">
-              <img src="/scheduler_forecast_timeline.svg" alt="Carbon forecast timeline for US-MIDW-MISO showing cleanest and dirtiest hours." />
-            </div>
-            <figcaption>
-              <strong>Forecast timeline</strong>
-              <span>The sample MISO forecast swings by 274 gCO2/kWh, which is why job timing can materially change emissions.</span>
-            </figcaption>
-          </figure>
-          <figure className="media-card">
-            <div className="media-frame">
-              <img src="/scheduler_ranked_windows.svg" alt="Ranked schedule windows for a 2.5 kilowatt-hour two-hour job." />
-            </div>
-            <figcaption>
-              <strong>Ranked windows</strong>
-              <span>The scheduler compares every valid start time and surfaces the lowest-emissions options first.</span>
-            </figcaption>
-          </figure>
-          <figure className="media-card">
-            <div className="media-frame">
-              <img src="/scheduler_duration_comparison.svg" alt="Comparison of best and worst emissions for jobs lasting two, three, and four hours." />
-            </div>
-            <figcaption>
-              <strong>Duration sensitivity</strong>
-              <span>Even when jobs run longer, the timing decision still creates a meaningful emissions spread.</span>
-            </figcaption>
-          </figure>
-          <figure className="media-card media-card-wide">
-            <div className="media-frame">
-              <img src="/scheduler_gpu_profile.svg" alt="GPU power profile showing sampled power draw and total estimated energy." />
-            </div>
-            <figcaption>
-              <strong>Measured energy input</strong>
-              <span>GPU profiling gives the scheduler a path from raw hardware telemetry to a job-energy estimate and then to a cleaner schedule recommendation.</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="content-section project-hardware-grid">
-        <article className="section-panel hardware-card">
-          <p className="eyebrow">Why It Lands</p>
-          <h2>A simple tool with a credible infrastructure story.</h2>
-          <p>
-            For recruiters, this page shows a clear throughline from sustainability idea to working software. For
-            technical readers, it demonstrates real data handling, constraint-aware ranking, CLI ergonomics, and a
-            clean path toward larger orchestration systems.
-          </p>
-          <ul className="list-grid">
-            <li>The workflow is explainable: every ranked slot can be traced back to forecast rows and emissions math.</li>
-            <li>It is practical: the deadline filter keeps the recommendation grounded in real scheduling constraints.</li>
-            <li>It is extensible: region selection, cost modeling, and automated job execution can be layered on top.</li>
-          </ul>
-        </article>
-        <article className="section-panel">
-          <p className="eyebrow">Key Capabilities</p>
-          <ul className="list-grid">
-            {project.metrics.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-      </section>
-    </>
-  );
-}
-
 function EcoDispatchShowcase({ project }) {
   const overviewStats = [
-    { value: "27%", label: "Emissions reduction", detail: "Best optimized run vs. baseline grid-heavy dispatch." },
-    { value: "21%", label: "Cost savings", detail: "Lower energy cost by shifting when and how power is used." },
-    { value: "40%", label: "Renewables utilized", detail: "Solar and battery cover a much larger share of daily demand." },
-    { value: "1,800 kWh", label: "Flexible load shifted", detail: "Batchable compute moves into cleaner operating windows." },
+    { value: "5", label: "Dispatch modes", detail: "Baseline, carbon-first, cost-first, balanced, and rolling-horizon optimized." },
+    { value: "4", label: "Scenario presets", detail: "Realistic, stress test, solar rich, and volatile market runs reveal different operating conditions." },
+    { value: "100%", label: "Load coverage shown", detail: "Comparisons now report served load and unmet demand explicitly so no strategy gets a fake win." },
+    { value: "1 UI", label: "Tradeoff controls", detail: "The dashboard exposes balanced cost-vs-carbon weights and explains what each mode actually does." },
   ];
 
   const workflowSteps = [
     {
       title: "Read system conditions",
-      text: "Load demand, solar availability, carbon intensity, and electricity price signals for each hour.",
+      text: "Load hourly demand, weather-driven solar availability, carbon intensity, and electricity price signals for each timestep.",
     },
     {
-      title: "Score dispatch options",
-      text: "Compare grid, solar, and battery choices while respecting battery power, SOC, and reliability limits.",
+      title: "Plan across time",
+      text: "Use strategy-specific charging and discharging behavior so the battery can react to upcoming dirty or expensive hours instead of only the present moment.",
     },
     {
       title: "Shift flexible workloads",
-      text: "Move non-urgent compute toward lower-carbon hours instead of treating demand as fixed.",
+      text: "Move non-urgent compute toward cleaner windows while keeping total modeled demand coverage visible in the results.",
     },
     {
-      title: "Execute and monitor",
-      text: "Expose decisions through the dashboard and connect to Arduino and Raspberry Pi hardware for validation.",
+      title: "Compare honest outcomes",
+      text: "Show emissions, cost, peak grid, renewable share, load served, and unmet demand so each strategy can be judged on the same basis.",
+    },
+  ];
+
+  const strategyCards = [
+    {
+      title: "Carbon-first",
+      body:
+        "Charges during cleaner hours, discharges during dirtier ones, and shifts some flexible load away from high-carbon periods. This mode is about emissions first, even if cost is not optimal.",
+    },
+    {
+      title: "Cost-first",
+      body:
+        "Charges during cheaper hours and discharges during more expensive ones. It behaves more like a tariff-arbitrage strategy than a decarbonization strategy.",
+    },
+    {
+      title: "Balanced",
+      body:
+        "Uses a visible carbon-vs-cost weighting in the dashboard, so the tradeoff is no longer hidden inside the code. Moving the slider changes the behavior directly.",
+    },
+    {
+      title: "Optimized",
+      body:
+        "Now uses a short rolling-horizon view instead of a purely single-hour decision. It is still a prototype, but it can preserve battery energy for future opportunities instead of reacting myopically.",
     },
   ];
 
@@ -1066,9 +846,9 @@ function EcoDispatchShowcase({ project }) {
             </div>
             <div className="system-connector" aria-hidden="true" />
             <div className="system-node">
-              <strong>Optimizer</strong>
-              <span>SciPy strategies</span>
-              <span>Battery limits</span>
+              <strong>Strategy engine</strong>
+              <span>Rolling horizon</span>
+              <span>Battery charging</span>
               <span>Shiftable load</span>
             </div>
             <div className="system-connector" aria-hidden="true" />
@@ -1080,8 +860,8 @@ function EcoDispatchShowcase({ project }) {
             </div>
           </div>
           <p className="system-visual-copy">
-            The project ties together time-series data, optimization logic, and physical constraints instead of
-            treating sustainability as a separate reporting layer.
+            The updated prototype is framed as a scenario-analysis tool, not a magical production optimizer. The point
+            is to make dispatch tradeoffs legible, comparable, and honest enough to inspect.
           </p>
         </div>
 
@@ -1096,13 +876,23 @@ function EcoDispatchShowcase({ project }) {
         </div>
       </section>
 
+      <section className="content-section project-context-grid">
+        {strategyCards.map((card) => (
+          <article className="section-panel project-context-card" key={card.title}>
+            <p className="eyebrow">Strategy Logic</p>
+            <h3>{card.title}</h3>
+            <p>{card.body}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="content-section project-media-gallery">
         <div className="section-heading project-media-heading">
           <p className="eyebrow">Project Media</p>
-          <h2>A fuller look at what the platform actually does.</h2>
+          <h2>A fuller look at what the simulator actually does.</h2>
           <p>
-            These visuals cover system inputs, optimization outcomes, and battery behavior so the page explains the
-            whole workflow instead of only showing one chart.
+            These visuals cover dispatch behavior, strategy comparison, operating conditions, and battery state so the
+            page explains the full workflow instead of selling a single headline metric.
           </p>
         </div>
         <div className="media-grid media-grid-rich">
@@ -1121,7 +911,7 @@ function EcoDispatchShowcase({ project }) {
             </div>
             <figcaption>
               <strong>Strategy comparison</strong>
-              <span>Compares emissions across baseline, carbon-min, cost-min, balanced, and optimized modes.</span>
+              <span>Compares baseline, carbon-first, cost-first, balanced, and optimized runs using the same demand basis.</span>
             </figcaption>
           </figure>
           <figure className="media-card">
@@ -1147,11 +937,12 @@ function EcoDispatchShowcase({ project }) {
 
       <section className="content-section project-hardware-grid">
         <article className="section-panel hardware-card">
-          <p className="eyebrow">Hardware Validation</p>
-          <h2>Simulation was designed with a path to real controls.</h2>
+          <p className="eyebrow">Prototype Framing</p>
+          <h2>Designed as a realistic simulator with a path toward real controls.</h2>
           <p>
-            The hardware side connects Arduino-based battery telemetry with Raspberry Pi relay control so EcoDispatch
-            can move beyond a pure software demo.
+            EcoDispatch is best presented as a transparent simulation and scenario-analysis platform. The hardware side
+            shows how the ideas could connect to battery telemetry and relay control later, but the current value is in
+            making the strategy tradeoffs inspectable rather than pretending the system is deployment-ready.
           </p>
           <ul className="list-grid">
             <li>Arduino monitors voltage, current, temperature, and state of charge.</li>
