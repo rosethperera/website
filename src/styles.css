@@ -295,6 +295,15 @@ img {
   font-size: 11.5px;
   color: #222;
 }
+.menubar-link {
+  cursor: pointer;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+.menubar-link:hover {
+  background: #2456c9;
+  color: #fff;
+}
 
 .winbody {
   flex: 1 1 auto;
@@ -491,6 +500,103 @@ img {
   border: 0;
 }
 
+/* Fake browser window (File / View menus) */
+.browser-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: -16px -20px;
+}
+.browser-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, #f4f4f4, #dcdcdc);
+  border-bottom: 1px solid #aaa;
+}
+.browser-nav-btn {
+  width: 26px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  background: linear-gradient(180deg, #fefefe, #d8d8d8);
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+}
+.browser-nav-btn:disabled {
+  color: #aaa;
+  cursor: default;
+}
+.browser-nav-btn:not(:disabled):hover {
+  background: linear-gradient(180deg, #fff, #e8e8e8);
+}
+.browser-address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  font-size: 12.5px;
+  color: #222;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.browser-favicon {
+  flex: 0 0 auto;
+}
+.browser-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  background: #fff;
+}
+.browser-iframe {
+  flex: 1;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+.browser-fallback {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px;
+  text-align: center;
+  background: #f4f6fa;
+}
+.browser-notice {
+  max-width: 380px;
+}
+.browser-notice-icon {
+  font-size: 34px;
+  margin: 0 0 6px;
+}
+.browser-notice h3 {
+  margin: 0 0 6px;
+  color: #0b2f7a;
+  font-size: 15px;
+}
+.browser-notice p {
+  margin: 0;
+  color: #444;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.browser-open-tab {
+  font-size: 13px;
+}
+
 /* Outlook-style contact window */
 .outlook-window {
   display: flex;
@@ -511,6 +617,116 @@ img {
 }
 .outlook-body {
   padding: 12px 0;
+}
+.outlook-locked-field {
+  color: #333;
+  background: #e8e6da;
+  padding: 2px 8px;
+  border-radius: 3px;
+  flex: 1;
+}
+.outlook-input {
+  flex: 1;
+  font-family: inherit;
+  font-size: 13.5px;
+  border: 1px solid #9fa8b8;
+  border-radius: 2px;
+  padding: 3px 6px;
+  background: #fff;
+}
+.outlook-textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 13.5px;
+  border: 1px solid #9fa8b8;
+  border-radius: 2px;
+  padding: 8px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.outlook-error {
+  color: #a01818;
+  font-size: 12.5px;
+  margin: 6px 0 0;
+}
+.outlook-sent {
+  color: #1a6b2f;
+  font-size: 12.5px;
+  margin: 6px 0 0;
+}
+
+/* Notepad.exe-style public project notes */
+.notepad-window {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.notepad-compose {
+  border-bottom: 1px solid #c7c3ac;
+  padding-bottom: 12px;
+}
+.notepad-textarea {
+  width: 100%;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  border: 1px solid #9fa8b8;
+  border-radius: 2px;
+  padding: 8px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.notepad-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.notepad-entry {
+  background: #fff;
+  border: 1px solid #d8d4c0;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+.notepad-entry-text {
+  margin: 0 0 6px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.notepad-entry-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #777;
+}
+.notepad-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.6;
+  padding: 2px 4px;
+}
+.notepad-delete-btn:hover {
+  opacity: 1;
+}
+.notepad-notice {
+  text-align: center;
+  padding: 20px;
+}
+.notepad-notice-icon {
+  font-size: 30px;
+  margin: 0 0 6px;
+}
+.notepad-notice h3 {
+  color: #0b2f7a;
+  margin: 0 0 6px;
+}
+.notepad-notice p {
+  color: #555;
+  font-size: 13px;
+  margin: 0;
 }
 
 /* ============ TASKBAR ============ */

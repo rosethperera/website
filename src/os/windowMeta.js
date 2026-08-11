@@ -23,9 +23,67 @@ const projectEntries = Object.fromEntries(
       defaultX: 240 + index * 12,
       defaultY: 96 + index * 10,
       statusText: project.date,
+      menuItems: [
+        { label: "File", targetId: `browser-repo-${project.slug}` },
+        { label: "Edit", targetId: `notepad-${project.slug}` },
+        { label: "View", targetId: `browser-live-${project.slug}` },
+        { label: "Help", targetId: `mail-${project.slug}` },
+      ],
     },
   ])
 );
+
+// Fake-browser windows (File → repo, View → live deployment) and the fake
+// mail composer (Help), one pair/one entry per project.
+const browserAndMailEntries = {};
+featuredProjects.forEach((project, index) => {
+  browserAndMailEntries[`browser-repo-${project.slug}`] = {
+    title: `${project.title} — Repository`,
+    icon: "🐙",
+    width: 640,
+    height: 480,
+    minWidth: 420,
+    minHeight: 340,
+    defaultX: 200 + index * 16,
+    defaultY: 80 + index * 12,
+    statusText: "Done",
+    menuItems: null,
+  };
+  browserAndMailEntries[`browser-live-${project.slug}`] = {
+    title: `${project.title} — Live Site`,
+    icon: "🌐",
+    width: 640,
+    height: 480,
+    minWidth: 420,
+    minHeight: 340,
+    defaultX: 220 + index * 16,
+    defaultY: 90 + index * 12,
+    statusText: "Done",
+    menuItems: null,
+  };
+  browserAndMailEntries[`mail-${project.slug}`] = {
+    title: `New Message — ${project.title}`,
+    icon: "✉️",
+    width: 480,
+    minWidth: 380,
+    minHeight: 340,
+    defaultX: 260 + index * 16,
+    defaultY: 100 + index * 12,
+    statusText: "Ready",
+    menuItems: ["File", "Edit", "Insert", "Format"],
+  };
+  browserAndMailEntries[`notepad-${project.slug}`] = {
+    title: `${project.title} — Notepad`,
+    icon: "🗒️",
+    width: 460,
+    minWidth: 360,
+    minHeight: 340,
+    defaultX: 240 + index * 16,
+    defaultY: 110 + index * 12,
+    statusText: "Public notes",
+    menuItems: ["File", "Edit", "Format", "View", "Help"],
+  };
+});
 
 export const windowMeta = {
   about: {
@@ -49,6 +107,7 @@ export const windowMeta = {
     statusText: "5 objects",
   },
   ...projectEntries,
+  ...browserAndMailEntries,
   experience: {
     title: "Experience.doc - Work History",
     icon: "📄",

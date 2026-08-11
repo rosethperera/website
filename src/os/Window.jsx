@@ -1,5 +1,6 @@
 import { useCallback, useRef } from "react";
 import { useWindowManager } from "./WindowManagerContext";
+import { useNavigate } from "./NavigationContext";
 
 const TASKBAR_HEIGHT = 34;
 // Leaves room so a maximized window's own titlebar buttons never sit under
@@ -34,6 +35,7 @@ export default function Window({
 }) {
   const { windows, closeWindow, focusWindow, toggleMinimize, toggleMaximize, commitPosition, commitGeometry } =
     useWindowManager();
+  const navigate = useNavigate();
   const win = windows[id];
   const nodeRef = useRef(null);
   const dragState = useRef(null);
@@ -202,9 +204,14 @@ export default function Window({
       </div>
       {menuItems && (
         <div className="menubar">
-          {menuItems.map((m) => (
-            <span key={m}>{m}</span>
-          ))}
+          {menuItems.map((m) => {
+            if (typeof m === "string") return <span key={m}>{m}</span>;
+            return (
+              <span key={m.label} className="menubar-link" onClick={() => navigate(m.targetId)}>
+                {m.label}
+              </span>
+            );
+          })}
         </div>
       )}
       <div className="winbody">{children}</div>

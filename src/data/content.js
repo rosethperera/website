@@ -126,6 +126,10 @@ export const featuredProjects = [
     category: "AI / Cloud — Amazon Internship",
     title: "Compliance IQ — Enterprise AI Assistant",
     date: "May 2026 – Aug 2026",
+    repoUrl: null,
+    repoStatus: "private", // Amazon internal code — no public repo
+    liveUrl: null,
+    liveStatus: "none", // internal enterprise tool, nothing public to visit
     impact:
       "A production conversational AI assistant for an internal enterprise compliance platform, shipped end-to-end as sole feature owner and rated “raises the bar” by both manager and mentor.",
     summary:
@@ -179,6 +183,10 @@ export const featuredProjects = [
     category: "AI / Full-stack",
     title: "Aeolus — AI Outdoor Trip Planning",
     date: "Jun 2026 – Present",
+    repoUrl: null,
+    repoStatus: "pending", // awaiting real repo URL
+    liveUrl: null,
+    liveStatus: "pending", // awaiting confirmation of a public live deployment
     impact:
       "A full-stack AI trip-planning app that grounds every recommendation in live authoritative data — not model guesswork — through tool-calling into government weather and park APIs.",
     summary:
@@ -223,6 +231,10 @@ export const featuredProjects = [
     category: "Energy data and software",
     title: "Carbon-Aware AI Scheduler",
     date: "Feb 2026 – Apr 2026",
+    repoUrl: null,
+    repoStatus: "pending", // awaiting real repo URL
+    liveUrl: null,
+    liveStatus: "none", // CLI tool — nothing to deploy/visit
     impact:
       "A Python scheduling workflow that ranks lower-emission execution windows for compute jobs instead of treating timing as a neutral decision.",
     summary:
@@ -260,6 +272,10 @@ export const featuredProjects = [
     category: "Sustainable infrastructure",
     title: "EcoDispatch",
     date: "2025",
+    repoUrl: null,
+    repoStatus: "pending", // awaiting real repo URL
+    liveUrl: null,
+    liveStatus: "pending", // awaiting confirmation of a public live deployment (Streamlit dashboard?)
     impact:
       "A Python simulation prototype for exploring how data centers can coordinate grid electricity, on-site solar, battery storage, and flexible workloads to study carbon and cost tradeoffs.",
     summary:
@@ -313,6 +329,10 @@ export const featuredProjects = [
     category: "Embedded systems",
     title: "Battery Telemetry for Robotics",
     date: "Sep 2025 – May 2026",
+    repoUrl: null,
+    repoStatus: "pending", // awaiting real repo URL
+    liveUrl: null,
+    liveStatus: "none", // embedded firmware — nothing to deploy/visit
     impact:
       "An ESP32-based monitoring system for a 24 V LiFePO4 battery pack designed around visibility, safety, and practical power management.",
     summary:
