@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "./NavigationContext";
+import { TetrisGlyph, PacmanGlyph } from "./DesktopIconArt";
 
 const ICONS = [
   { id: "mycomputer", label: "My Computer", cls: "mycomputer", glyph: "🖥️" },
@@ -7,6 +8,8 @@ const ICONS = [
   { id: "resume", label: "resume.pdf", cls: "resume", glyph: "📄" },
   { id: "contact", label: "Contact Me", cls: "contact", glyph: "✉️" },
   { id: "recyclebin", label: "Recycle Bin", cls: "recycle", glyph: "🗑️" },
+  { id: "tetris", label: "Tetris", cls: "tetris", glyph: <TetrisGlyph /> },
+  { id: "pacman", label: "Pac-Man", cls: "pacman", glyph: <PacmanGlyph /> },
 ];
 
 export default function DesktopIcons() {

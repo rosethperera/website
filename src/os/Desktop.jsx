@@ -17,7 +17,18 @@ function OpenWindows() {
     if (!def) return null;
     const Content = def.Content;
     return (
-      <Window key={id} id={id} title={def.title} icon={def.icon} width={def.width} statusText={def.statusText} menuItems={def.menuItems}>
+      <Window
+        key={id}
+        id={id}
+        title={def.title}
+        icon={def.icon}
+        width={def.width}
+        height={def.height}
+        minWidth={def.minWidth}
+        minHeight={def.minHeight}
+        statusText={def.statusText}
+        menuItems={def.menuItems}
+      >
         <Content {...(def.contentProps || {})} />
       </Window>
     );

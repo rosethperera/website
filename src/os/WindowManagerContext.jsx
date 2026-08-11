@@ -24,9 +24,10 @@ export function WindowManagerProvider({ children }) {
           x: (meta.defaultX ?? 140) + cascade * CASCADE_STEP,
           y: (meta.defaultY ?? 80) + cascade * CASCADE_STEP,
           width: meta.width ?? 480,
+          height: meta.height ?? null,
           zIndex: zCounter.current,
           minimized: false,
-          maximized: false,
+          maximized: Boolean(meta.openMaximized),
         },
       };
     });
@@ -71,6 +72,10 @@ export function WindowManagerProvider({ children }) {
     setWindows((prev) => (prev[id] ? { ...prev, [id]: { ...prev[id], x, y } } : prev));
   }, []);
 
+  const commitGeometry = useCallback((id, patch) => {
+    setWindows((prev) => (prev[id] ? { ...prev, [id]: { ...prev[id], ...patch } } : prev));
+  }, []);
+
   const isOpen = useCallback((id) => Boolean(windows[id]), [windows]);
 
   const value = {
@@ -81,6 +86,7 @@ export function WindowManagerProvider({ children }) {
     toggleMinimize,
     toggleMaximize,
     commitPosition,
+    commitGeometry,
     isOpen,
   };
 

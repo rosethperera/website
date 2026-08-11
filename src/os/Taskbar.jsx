@@ -23,6 +23,7 @@ export default function Taskbar() {
   }, []);
 
   const openIds = Object.keys(windows);
+  const maxZ = Math.max(0, ...Object.values(windows).map((w) => w.zIndex));
 
   return (
     <div className="taskbar">
@@ -45,7 +46,11 @@ export default function Taskbar() {
             <div
               key={id}
               className={`task-item${!win.minimized ? " active" : ""}`}
-              onClick={() => (win.minimized ? focusWindow(id) : toggleMinimize(id))}
+              onClick={() => {
+                if (win.minimized) toggleMinimize(id);
+                else if (win.zIndex === maxZ) toggleMinimize(id);
+                else focusWindow(id);
+              }}
             >
               <span className="task-item-icon">{meta.icon}</span>
               {label.length > 22 ? `${label.slice(0, 22)}…` : label}
