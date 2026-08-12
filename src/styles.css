@@ -946,53 +946,6 @@ img {
   display: block;
 }
 
-/* ============ GAME LAYER TOGGLE (always visible) ============ */
-.game-toggle-widget {
-  position: fixed;
-  top: 12px;
-  right: 14px;
-  z-index: 9000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(20, 30, 50, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  padding: 6px 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-}
-.game-toggle-label {
-  color: #eef2fb;
-  font-size: 11px;
-}
-.game-toggle {
-  width: 36px;
-  height: 19px;
-  background: #2f9e18;
-  border-radius: 10px;
-  position: relative;
-  border: 1px solid #1c5f0e;
-  cursor: pointer;
-  padding: 0;
-}
-.game-toggle.off {
-  background: #555;
-  border-color: #333;
-}
-.game-toggle-knob {
-  position: absolute;
-  top: 1px;
-  left: 18px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #fff;
-  transition: left 0.15s;
-}
-.game-toggle.off .game-toggle-knob {
-  left: 1px;
-  background: #ccc;
-}
 
 /* ============ GAME WINDOW CANVASES ============ */
 .tetris-wrap,
@@ -1190,12 +1143,4 @@ canvas {
   font-size: 10.5px;
   color: #eaf1ff;
   background: rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 720px) {
-  .game-toggle-widget {
-    top: auto;
-    bottom: 10px;
-    right: 10px;
-  }
 }
