@@ -2,6 +2,7 @@
 // the component registry so content windows can reference it without a
 // circular import back to windowRegistry.jsx.
 import { featuredProjects } from "../data/content";
+import { posts } from "../lib/posts";
 
 const projectIcons = {
   amazon: "⚡",
@@ -85,6 +86,23 @@ featuredProjects.forEach((project, index) => {
   };
 });
 
+const postEntries = Object.fromEntries(
+  posts.map((post, index) => [
+    `post-${post.slug}`,
+    {
+      title: `${post.title} - Notepad`,
+      icon: "🗒️",
+      width: 560,
+      minWidth: 420,
+      minHeight: 360,
+      defaultX: 260 + index * 14,
+      defaultY: 100 + index * 10,
+      statusText: post.date,
+      menuItems: ["File", "Edit", "View", "Help"],
+    },
+  ])
+);
+
 export const windowMeta = {
   about: {
     title: "ROSETH.exe - About Me",
@@ -108,6 +126,17 @@ export const windowMeta = {
   },
   ...projectEntries,
   ...browserAndMailEntries,
+  writing: {
+    title: "Writing",
+    icon: "🗒️",
+    width: 480,
+    minWidth: 380,
+    minHeight: 320,
+    defaultX: 300,
+    defaultY: 130,
+    statusText: `${posts.length} document${posts.length === 1 ? "" : "s"}`,
+  },
+  ...postEntries,
   experience: {
     title: "Experience.doc - Work History",
     icon: "📄",

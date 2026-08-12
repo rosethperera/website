@@ -15,9 +15,6 @@ export default function ExperienceWindow() {
             {item.org}
             {item.location ? ` · ${item.location}` : ""}
           </p>
-          {item.highlight === "raises-the-bar" && (
-            <p className="achievement-badge">🏆 Rated "raises the bar" by manager &amp; mentor</p>
-          )}
           <ul className="win-list">
             {item.bullets.map((bullet) => (
               <li key={bullet.slice(0, 30)}>{bullet}</li>

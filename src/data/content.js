@@ -13,9 +13,10 @@ export const profile = {
 };
 
 export const aboutText = [
-  "I'm Roseth Perera. I study Electrical Engineering at UW–Madison, with a minor in Engineering for Energy Sustainability. I am building a career at the intersection of energy, infrastructure, and intelligent systems. My long-term focus is reducing carbon emissions and designing more sustainable, data-center-scale technology.",
-  "I grew up in Sri Lanka. There, I saw clearly that power and infrastructure are not invisible background systems. Unstable access changes how people live, learn, and move forward. That experience shaped how I think about engineering. I do not just build new technology. I build systems that are resilient, efficient, and responsible with the energy they require.",
-  "I just finished a Summer 2026 Software Development Engineer internship at Amazon. I shipped a production conversational AI assistant end-to-end. My manager and mentor both rated me “raises the bar.” I am now building Aeolus, an AI trip-planning app grounded in live authoritative data. I also contribute to Wisconsin Robotics and Engineers Without Borders.",
+  "I study Electrical Engineering at UW–Madison. I build AI systems that have to work against messy real-world data, and I understand the physical systems underneath them.",
+  "I grew up in Sri Lanka, where I watched a country run out of things. The shortages were real, but a lot of the failure was informational. Nobody could say where supplies actually were or what would arrive next week. People made decisions anyway, on instinct, at enormous cost. That's why I study engineering. It's also why I care more about whether a system tells the truth than about whether it sounds impressive.",
+  "I just finished a Summer 2026 Software Development Engineer internship at Amazon. I shipped a production conversational AI assistant end to end, across Python, Java, and TypeScript. I'm now building Aeolus, an AI trip planner grounded in live NWS and NPS data. Building it has mostly taught me that the failures are never where you expect them.",
+  "I'm most interested in work where AI meets physical systems and non-technical users. I also contribute to Wisconsin Robotics and Engineers Without Borders.",
 ];
 
 // Professional / technical experience, most recent first.
@@ -34,7 +35,6 @@ export const experiences = [
       "Drove the search data-layer decision with first-hand latency measurement. Benchmarked candidate backends against a hard p90 budget. Rejected a data-warehouse design based on the evidence. Landed a serverless architecture roughly 10–20x cheaper.",
       "Built the live control-search feature in Java, including relevance and fuzzy matching and nested dependency queries. Also built a change-stream sync pipeline that keeps the index continuously fresh, with deploy-time bootstrap and historical backfill.",
       "Debugged distributed systems using primary evidence. Independently root-caused a multi-fault production outage spanning IAM permissions, stream parsing, and deploy versioning across the streaming chat path.",
-      "Both manager and mentor rated me “raises the bar” in official evaluations.",
       "Delivered across a three-language, six-package codebase (Python, Java, TypeScript CDK). Maintained high unit-test coverage and green CI/CD throughout.",
     ],
     stack: [
@@ -50,7 +50,6 @@ export const experiences = [
       "Python",
       "TypeScript",
     ],
-    highlight: "raises-the-bar",
   },
   {
     slug: "wisconsin-robotics",
@@ -131,7 +130,7 @@ export const featuredProjects = [
     liveUrl: null,
     liveStatus: "none", // internal enterprise tool, nothing public to visit
     impact:
-      "A production conversational AI assistant for an internal enterprise compliance platform. I shipped it end-to-end as sole feature owner. My manager and mentor both rated it “raises the bar.”",
+      "A production conversational AI assistant for an internal enterprise compliance platform. I shipped it end-to-end as sole feature owner.",
     summary:
       "An agent on AWS Bedrock AgentCore Runtime with retrieval-augmented generation and live data-search tools. It cites authoritative sources or declines to answer. It never fabricates.",
     role:
@@ -162,7 +161,6 @@ export const featuredProjects = [
       "Root-causing a multi-fault production outage spanning IAM permissions, stream parsing, and deploy versioning across the streaming chat path.",
     ],
     results: [
-      "Both manager and mentor rated me “raises the bar” in official evaluations, Amazon's highest individual-contributor performance signal.",
       "Landed a serverless search architecture roughly 10–20x cheaper than the data-warehouse alternative, chosen on measured evidence.",
       "Delivered across a three-language, six-package codebase (Python, Java, TypeScript CDK). Kept high unit-test coverage and green CI/CD throughout.",
       "Independently root-caused and resolved a multi-fault production outage.",
@@ -171,7 +169,6 @@ export const featuredProjects = [
       "This was my first time owning a production AI feature end-to-end under real compliance stakes. The biggest lesson: trustworthy AI systems are mostly an engineering problem. Grounding, refusal behavior, and data freshness matter more than model choice.",
     metrics: [
       "End-to-end feature owner",
-      "“Raises the bar” · manager & mentor",
       "~10–20x cheaper search architecture",
       "3 languages, 6 packages, high test coverage",
       "Solo root-cause of multi-fault outage",
@@ -188,41 +185,37 @@ export const featuredProjects = [
     liveUrl: null,
     liveStatus: "pending", // awaiting confirmation of a public live deployment
     impact:
-      "A full-stack AI trip-planning app. It grounds every recommendation in live authoritative data, not model guesswork, through tool-calling into government weather and park APIs.",
+      "A full-stack AI trip planner shipped to production. Recommendations are grounded in live National Weather Service and National Park Service data through LLM tool-calling, so the app works from real conditions instead of plausible-sounding guesses.",
     summary:
-      "Aeolus is named for the Greek god of winds. It plans outdoor trips using Azure OpenAI with tool-calling into the National Weather Service and National Park Service APIs. A citations and data-freshness system traces every answer to a timestamped source. A persistent memory layer personalizes planning across sessions.",
+      "Aeolus is named for the Greek god of winds. It plans outdoor trips on Next.js and Azure OpenAI, hosted on Vercel with a Supabase/Postgres backend. The hardest problems turned out to be the unglamorous ones underneath the AI layer, not the AI itself.",
     role:
-      "I am architecting the full stack. My work covers the Azure OpenAI tool-calling layer, the NWS/NPS API integrations, the citations and data-freshness tracking system, and the Supabase/Postgres persistent memory layer.",
-    stack: [
-      "Azure OpenAI",
-      "Microsoft Foundry",
-      "Next.js",
-      "Supabase / Postgres",
-      "National Weather Service API",
-      "National Park Service API",
-    ],
+      "I designed and built the full stack solo: the Next.js frontend, the Azure OpenAI tool-calling layer, the NWS and NPS API integrations, the citation system, and the persistent memory layer on Supabase/Postgres.",
+    stack: ["Next.js", "Supabase / Postgres", "Vercel", "Azure OpenAI"],
     systemDesign: [
       "Tool-calling into the National Weather Service and National Park Service APIs grounds every recommendation in live, authoritative data.",
-      "Citations and data-freshness system tracing each answer back to a timestamped source.",
-      "Structured persistent memory layer on Supabase/Postgres that personalizes trip planning across sessions.",
-      "Next.js full-stack app served on Azure OpenAI / Microsoft Foundry.",
+      "Local re-ranking layer, built after the National Park Service API buried the correct park behind 455 keyword matches. Prompting could not fix this. It required reading the API's ranking behavior and building a scoring layer underneath.",
+      "Server-side citation system that attaches source metadata only from tools that actually succeeded, so the app cannot cite a source it never reached.",
+      "Per-user preference schema that promotes an inferred signal to a stated fact after three consistent observations.",
+      "Next.js full-stack app deployed on Vercel, backed by Azure OpenAI.",
     ],
     challenges: [
       "Keeping every recommendation traceable to a live source instead of letting the model fill gaps with plausible-sounding guesses.",
+      "Untangling a four-layer serverless deployment failure: Chromium version drift, two dependency-tracing gaps, and a shared-library path conflict. Root-caused it by reading vendored package source.",
       "Designing a memory schema that personalizes planning without becoming stale or contradicting fresh data.",
-      "Coordinating multiple external government APIs with different freshness and reliability characteristics.",
     ],
     results: [
-      "Working citations system that traces each answer to a timestamped authoritative source.",
-      "Persistent memory layer personalizing recommendations across sessions.",
+      "Working citations system that traces each answer to a timestamped, successfully-reached source.",
+      "Per-user preference layer that personalizes recommendations across sessions.",
+      "Resolved a four-layer serverless deployment failure by reading vendored package source instead of guessing at the fix.",
+      "Shipped solo in about five and a half weeks: roughly 190 commits, 37.6K lines, and 1,224 passing tests.",
     ],
     reflection:
       "Aeolus is my sharpest expression yet of a principle from Compliance IQ. An AI system is only as trustworthy as its grounding. Next steps: broaden the data-source set and tighten the memory layer's personalization signal.",
     metrics: [
-      "Live NWS + NPS tool-calling",
-      "Timestamped source citations",
-      "Cross-session persistent memory",
-      "Full-stack Next.js on Azure OpenAI",
+      "~190 commits, ~37.6K lines",
+      "1,224 passing tests",
+      "~5.5 weeks, solo build",
+      "Live in production",
     ],
   },
   {

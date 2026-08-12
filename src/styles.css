@@ -103,6 +103,9 @@ img {
 .ico.resume {
   background: linear-gradient(155deg, #fff, #d7e3f5);
 }
+.ico.writing {
+  background: linear-gradient(155deg, #fff8dc, #e0c96a);
+}
 .ico.recycle {
   background: linear-gradient(155deg, #dfe6ee, #aab6c4);
 }
@@ -320,17 +323,6 @@ img {
 .win-list li {
   margin-bottom: 4px;
 }
-.achievement-badge {
-  display: inline-block;
-  background: linear-gradient(180deg, #fff6d8, #ffe28a);
-  border: 1px solid #d1a021;
-  color: #5c3d00;
-  font-weight: 700;
-  font-size: 13px;
-  padding: 4px 9px;
-  border-radius: 4px;
-  margin: 4px 0 10px;
-}
 
 .tag {
   display: inline-block;
@@ -428,6 +420,78 @@ img {
   font-size: 12px;
   color: #666;
   white-space: nowrap;
+}
+
+/* Writing: post list */
+.post-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.post-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 6px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.post-list-item:hover,
+.post-list-item:focus-visible {
+  background: #dbe8fb;
+  outline: 1px dotted #7fa8e0;
+}
+.post-list-title {
+  font-size: 13.5px;
+  color: #111;
+}
+.post-list-date {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* Writing: reader view */
+.post-reader-body {
+  max-width: 70ch;
+}
+.post-reader-body p,
+.post-reader-body ul,
+.post-reader-body blockquote {
+  margin: 0 0 12px;
+}
+.post-reader-body h2,
+.post-reader-body h3,
+.post-reader-body h4 {
+  margin: 16px 0 6px;
+  color: #0b2f7a;
+}
+.post-reader-body blockquote {
+  border-left: 3px solid #9fb8dc;
+  padding-left: 10px;
+  color: #444;
+  font-style: italic;
+}
+.post-reader-body code {
+  background: #eef1f6;
+  border: 1px solid #d6dbe4;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-family: "Courier New", monospace;
+  font-size: 12.5px;
+}
+.post-reader-body pre {
+  background: #eef1f6;
+  border: 1px solid #d6dbe4;
+  border-radius: 3px;
+  padding: 8px 10px;
+  overflow-x: auto;
+}
+.post-reader-body pre code {
+  border: none;
+  padding: 0;
+  background: none;
 }
 
 /* Project media gallery inside project windows */
@@ -1029,16 +1093,6 @@ canvas {
   font-size: 13px;
   opacity: 0.92;
 }
-.mobile-hero-badge {
-  display: inline-block;
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding: 4px 10px;
-  font-size: 11px;
-}
-
 .mobile-icon-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -32,9 +32,6 @@ export default function ProjectWindow({ slug }) {
       <p className="win-eyebrow">
         {project.category} · {project.date}
       </p>
-      {project.highlight === "raises-the-bar" && (
-        <p className="achievement-badge">🏆 Rated "raises the bar" by manager &amp; mentor</p>
-      )}
       <p>
         <strong>{project.impact}</strong>
       </p>

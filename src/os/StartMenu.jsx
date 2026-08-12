@@ -3,6 +3,7 @@ import { useNavigate } from "./NavigationContext";
 const MAIN_ITEMS = [
   { id: "about", label: "About Me", icon: "🖥️" },
   { id: "mybuilds", label: "My Builds", icon: "📁" },
+  { id: "writing", label: "Writing", icon: "🗒️" },
   { id: "experience", label: "Experience", icon: "📄" },
   { id: "skills", label: "Skills", icon: "⚙️" },
   { id: "awards", label: "Awards", icon: "🏆" },

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { aboutText, awards, education, experiences, featuredProjects, profile, skillGroups } from "../data/content";
+import { posts } from "../lib/posts";
 import { windowRegistry } from "../os/windowRegistry";
 import { NavigationProvider } from "../os/NavigationContext";
 
 const ICON_GRID = [
   { id: "mycomputer", label: "My Computer", glyph: "🖥️", bg: "linear-gradient(155deg,#e6edf5,#a8bcd6)" },
   { id: "mybuilds", label: "My Builds", glyph: "📁", bg: "linear-gradient(155deg,#ffe28a,#e0a83a)" },
+  { id: "writing", label: "Writing", glyph: "🗒️", bg: "linear-gradient(155deg,#fff8dc,#e0c96a)" },
   { id: "experience", label: "Experience", glyph: "📄", bg: "linear-gradient(155deg,#dfe9ff,#a9c3f0)" },
   { id: "skills", label: "Skills", glyph: "⚙️", bg: "linear-gradient(155deg,#e8e8e8,#b9c0cc)" },
   { id: "awards", label: "Awards", glyph: "🏆", bg: "linear-gradient(155deg,#fff2b0,#e0b23a)" },
@@ -47,7 +49,6 @@ export default function MobileView() {
       <header className="mobile-hero">
         <h1>{profile.name}</h1>
         <p>{profile.tagline}</p>
-        <span className="mobile-hero-badge">🏆 “Raises the bar,” Amazon SDE Internship, Summer 2026</span>
       </header>
 
       <nav className="mobile-icon-grid">
@@ -90,6 +91,27 @@ export default function MobileView() {
                   <span className="experience-date">{project.date}</span>
                 </div>
                 <p>{project.impact}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mobile-section">
+          <div className="mobile-section-header">🗒️ Writing</div>
+          <div className="mobile-section-body">
+            {posts.map((post) => (
+              <div
+                key={post.slug}
+                className="experience-entry"
+                role="button"
+                tabIndex={0}
+                onClick={() => setActiveWindow(`post-${post.slug}`)}
+              >
+                <div className="experience-entry-head">
+                  <h3>{post.title}</h3>
+                  <span className="experience-date">{post.date}</span>
+                </div>
+                <p>{post.excerpt}</p>
               </div>
             ))}
           </div>

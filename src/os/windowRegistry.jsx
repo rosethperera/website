@@ -1,4 +1,5 @@
 import { featuredProjects } from "../data/content";
+import { posts } from "../lib/posts";
 import { windowMeta } from "./windowMeta";
 import AboutWindow from "../windows/AboutWindow";
 import MyBuildsWindow from "../windows/MyBuildsWindow";
@@ -15,6 +16,8 @@ import PacmanGame from "../games/PacmanGame";
 import FakeBrowserWindow from "../windows/FakeBrowserWindow";
 import MailComposerWindow from "../windows/MailComposerWindow";
 import NotepadWindow from "../windows/NotepadWindow";
+import WritingWindow from "../windows/WritingWindow";
+import PostWindow from "../windows/PostWindow";
 
 const projectContent = Object.fromEntries(
   featuredProjects.map((project) => [
@@ -47,11 +50,20 @@ featuredProjects.forEach((project) => {
   };
 });
 
+const postContent = Object.fromEntries(
+  posts.map((post) => [
+    `post-${post.slug}`,
+    { ...windowMeta[`post-${post.slug}`], Content: PostWindow, contentProps: { slug: post.slug } },
+  ])
+);
+
 export const windowRegistry = {
   about: { ...windowMeta.about, Content: AboutWindow },
   mybuilds: { ...windowMeta.mybuilds, Content: MyBuildsWindow },
   ...projectContent,
   ...browserAndMailContent,
+  writing: { ...windowMeta.writing, Content: WritingWindow },
+  ...postContent,
   experience: { ...windowMeta.experience, Content: ExperienceWindow },
   resume: { ...windowMeta.resume, Content: ResumeWindow, menuItems: ["File", "View", "Help"] },
   contact: { ...windowMeta.contact, Content: ContactWindow, menuItems: ["File", "Edit", "Insert"] },
