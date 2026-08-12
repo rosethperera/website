@@ -46,9 +46,6 @@ export default function Desktop() {
   return (
     <NavigationProvider navigate={openWindow}>
       <div className="desktop">
-        <div className="hill2" />
-        <div className="hill" />
-
         <DesktopIcons />
         <OpenWindows />
         <Clippy />
