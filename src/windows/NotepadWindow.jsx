@@ -38,7 +38,7 @@ export default function NotepadWindow({ project }) {
         .eq("project_slug", project.slug)
         .order("created_at", { ascending: false });
       if (cancelled) return;
-      if (error) setLoadError("Couldn't load notes right now — try again in a bit.");
+      if (error) setLoadError("Couldn't load notes right now, try again in a bit.");
       else setNotes(data || []);
       setLoading(false);
     }
@@ -63,7 +63,7 @@ export default function NotepadWindow({ project }) {
       .single();
     setPosting(false);
     if (error) {
-      setPostError("That note couldn't be posted — try again.");
+      setPostError("That note couldn't be posted, try again.");
       return;
     }
     setNotes((prev) => [data, ...prev]);
@@ -79,7 +79,7 @@ export default function NotepadWindow({ project }) {
     }
     const { error } = await supabase.from("notes").delete().eq("id", noteId);
     if (error) {
-      window.alert("Couldn't delete that note — try again.");
+      window.alert("Couldn't delete that note, try again.");
       return;
     }
     setNotes((prev) => prev.filter((n) => n.id !== noteId));
@@ -120,7 +120,7 @@ export default function NotepadWindow({ project }) {
         {loading && <p className="win-hint">Loading notes…</p>}
         {loadError && <p className="outlook-error">{loadError}</p>}
         {!loading && !loadError && notes.length === 0 && (
-          <p className="win-hint">No notes yet — be the first to leave one.</p>
+          <p className="win-hint">No notes yet, be the first to leave one.</p>
         )}
         {notes.map((note) => (
           <div className="notepad-entry" key={note.id}>

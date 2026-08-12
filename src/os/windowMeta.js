@@ -15,7 +15,7 @@ const projectEntries = Object.fromEntries(
   featuredProjects.map((project, index) => [
     `project-${project.slug}`,
     {
-      title: `${project.title} — Properties`,
+      title: `${project.title} - Properties`,
       icon: projectIcons[project.slug] || "📁",
       width: 560,
       minWidth: 440,
@@ -38,7 +38,7 @@ const projectEntries = Object.fromEntries(
 const browserAndMailEntries = {};
 featuredProjects.forEach((project, index) => {
   browserAndMailEntries[`browser-repo-${project.slug}`] = {
-    title: `${project.title} — Repository`,
+    title: `${project.title} - Repository`,
     icon: "🐙",
     width: 640,
     height: 480,
@@ -50,7 +50,7 @@ featuredProjects.forEach((project, index) => {
     menuItems: null,
   };
   browserAndMailEntries[`browser-live-${project.slug}`] = {
-    title: `${project.title} — Live Site`,
+    title: `${project.title} - Live Site`,
     icon: "🌐",
     width: 640,
     height: 480,
@@ -62,7 +62,7 @@ featuredProjects.forEach((project, index) => {
     menuItems: null,
   };
   browserAndMailEntries[`mail-${project.slug}`] = {
-    title: `New Message — ${project.title}`,
+    title: `New Message - ${project.title}`,
     icon: "✉️",
     width: 480,
     minWidth: 380,
@@ -73,7 +73,7 @@ featuredProjects.forEach((project, index) => {
     menuItems: ["File", "Edit", "Insert", "Format"],
   };
   browserAndMailEntries[`notepad-${project.slug}`] = {
-    title: `${project.title} — Notepad`,
+    title: `${project.title} - Notepad`,
     icon: "🗒️",
     width: 460,
     minWidth: 360,

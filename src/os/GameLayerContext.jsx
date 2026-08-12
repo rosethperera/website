@@ -20,7 +20,7 @@ export function GameLayerProvider({ children }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, gameLayerOn ? "1" : "0");
     } catch {
-      // storage unavailable — non-fatal, toggle still works for this session
+      // storage unavailable, non-fatal, toggle still works for this session
     }
   }, [gameLayerOn]);
 

@@ -4,7 +4,7 @@ import { useGameLayer } from "../os/GameLayerContext";
 // Ghost AI here follows the publicly documented arcade Pac-Man mechanics
 // (scatter/chase cycling, per-ghost personality targeting, frightened/eaten
 // states) as described in community reverse-engineering writeups such as
-// "The Pac-Man Dossier" — no third-party source code was used.
+// "The Pac-Man Dossier". No third-party source code was used.
 
 const TILE = 8;
 const COLS = 28;
@@ -215,7 +215,7 @@ export default function PacmanGame() {
           queue.push({ x: nx, y: ny, first });
         }
       }
-      return null; // target unreachable — hold current direction
+      return null; // target unreachable, hold current direction
     }
 
     function chooseDirection(g, target, random) {
@@ -261,7 +261,7 @@ export default function PacmanGame() {
 
     // Must exceed half the largest per-frame step (eaten speed 0.18) or a
     // ghost's position can step clean over the detection window at a tile
-    // boundary and never get a direction re-check — letting it drift through
+    // boundary and never get a direction re-check, letting it drift through
     // walls indefinitely in a straight line.
     const CENTER_EPSILON = 0.1;
 
@@ -535,7 +535,7 @@ export default function PacmanGame() {
       <div className="pacman-frame">
         <canvas ref={canvasRef} />
       </div>
-      <div className="pacman-controls">{gameOver ? "GAME OVER — press an arrow key to restart" : "ARROW KEYS to move"}</div>
+      <div className="pacman-controls">{gameOver ? "GAME OVER. Press an arrow key to restart." : "ARROW KEYS to move"}</div>
     </div>
   );
 }

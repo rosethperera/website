@@ -12,7 +12,7 @@ export default function FakeBrowserWindow({ project, mode }) {
   const note = mode === "repo" ? project.repoNote : project.liveNote;
 
   // GitHub sends X-Frame-Options: deny / frame-ancestors 'none' (confirmed),
-  // so repo links never attempt an iframe — straight to the fallback card
+  // so repo links never attempt an iframe, straight to the fallback card
   // with a real "open in new tab" escape hatch. Live-deployment hosts vary,
   // so those get a real attempt with a load-timeout fallback.
   const [iframeFailed, setIframeFailed] = useState(mode === "repo");
@@ -61,7 +61,7 @@ export default function FakeBrowserWindow({ project, mode }) {
             key={url}
             className="browser-iframe"
             src={url}
-            title={`${project.title} — ${mode === "repo" ? "Repository" : "Live site"}`}
+            title={`${project.title} - ${mode === "repo" ? "Repository" : "Live site"}`}
             onLoad={() => setIframeLoaded(true)}
             onError={() => setIframeFailed(true)}
           />
@@ -73,7 +73,7 @@ export default function FakeBrowserWindow({ project, mode }) {
               <div className="browser-notice">
                 <p className="browser-notice-icon">🔒</p>
                 <h3>This project's code is private</h3>
-                <p>{note || "Amazon internal code — no public repository exists for this project."}</p>
+                <p>{note || "Amazon internal code, no public repository exists for this project."}</p>
               </div>
             )}
             {status === "none" && (
@@ -87,7 +87,7 @@ export default function FakeBrowserWindow({ project, mode }) {
               <div className="browser-notice">
                 <p className="browser-notice-icon">🔧</p>
                 <h3>Link coming soon</h3>
-                <p>This one hasn't been wired up yet — check back soon.</p>
+                <p>This one hasn't been wired up yet, check back soon.</p>
               </div>
             )}
             {url && status !== "private" && status !== "none" && status !== "pending" && (

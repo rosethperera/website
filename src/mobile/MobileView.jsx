@@ -47,7 +47,7 @@ export default function MobileView() {
       <header className="mobile-hero">
         <h1>{profile.name}</h1>
         <p>{profile.tagline}</p>
-        <span className="mobile-hero-badge">🏆 “Raises the bar” — Amazon SDE Internship, Summer 2026</span>
+        <span className="mobile-hero-badge">🏆 “Raises the bar,” Amazon SDE Internship, Summer 2026</span>
       </header>
 
       <nav className="mobile-icon-grid">
@@ -173,7 +173,7 @@ export default function MobileView() {
         </section>
       </div>
 
-      <p className="mobile-footer">© {new Date().getFullYear()} Roseth Perera — tap an icon above to explore.</p>
+      <p className="mobile-footer">© {new Date().getFullYear()} Roseth Perera. Tap an icon above to explore.</p>
 
       {activeWindow && <FullscreenWindow id={activeWindow} onClose={() => setActiveWindow(null)} />}
     </div>

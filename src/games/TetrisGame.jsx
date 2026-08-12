@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGameLayer } from "../os/GameLayerContext";
 
 // Rotation/kick data below is the publicly published Tetris Guideline "SRS"
-// (Super Rotation System) specification — the same numbers appear in the
+// (Super Rotation System) specification. The same numbers appear in the
 // official guideline docs and independently across countless from-scratch
 // implementations, since it's a technical standard rather than any single
 // project's original code. No third-party source was copied.

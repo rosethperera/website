@@ -4,7 +4,7 @@ import { profile } from "../data/content";
 export default function MailComposerWindow({ project }) {
   const [subject, setSubject] = useState(`Inquiry about ${project.title}`);
   const [body, setBody] = useState(
-    `Hey Roseth, I'd love to hear more about ${project.title} — would you be up for connecting sometime?`
+    `Hey Roseth, I'd love to hear more about ${project.title}, would you be up for connecting sometime?`
   );
   const [from, setFrom] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ export default function MailComposerWindow({ project }) {
       return;
     }
     setError("");
-    const fullBody = `${body}\n\n— From: ${from}`;
+    const fullBody = `${body}\n\nFrom: ${from}`;
     const mailto = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
     window.location.href = mailto;
     setSent(true);
@@ -53,7 +53,7 @@ export default function MailComposerWindow({ project }) {
         </button>
       </div>
       <p className="win-hint">
-        Send opens your own email app pre-filled with this message — nothing leaves your device until you actually
+        Send opens your own email app pre-filled with this message. Nothing leaves your device until you actually
         hit send there.
       </p>
     </div>
