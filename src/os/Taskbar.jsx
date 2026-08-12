@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useWindowManager } from "./WindowManagerContext";
 import { windowMeta } from "./windowMeta";
+import { useNavigate } from "./NavigationContext";
 import StartMenu from "./StartMenu";
 
 function formatClock(date) {
@@ -14,6 +15,7 @@ function formatClock(date) {
 
 export default function Taskbar() {
   const { windows, toggleMinimize, focusWindow } = useWindowManager();
+  const openWindow = useNavigate();
   const [clock, setClock] = useState(() => formatClock(new Date()));
   const [startOpen, setStartOpen] = useState(false);
 
@@ -58,7 +60,11 @@ export default function Taskbar() {
           );
         })}
       </div>
-      <div className="systray">
+      <div
+        className="systray"
+        onDoubleClick={() => openWindow("datetime")}
+        title="Double-click to open Date/Time Properties"
+      >
         🔊 <span>{clock}</span>
       </div>
     </div>

@@ -104,6 +104,16 @@ const postEntries = Object.fromEntries(
 );
 
 export const windowMeta = {
+  datetime: {
+    title: "Date/Time Properties",
+    icon: "🕒",
+    width: 460,
+    minWidth: 420,
+    minHeight: 400,
+    defaultX: 420,
+    defaultY: 150,
+    menuItems: null,
+  },
   about: {
     title: "ROSETH.exe - About Me",
     icon: "🖥️",

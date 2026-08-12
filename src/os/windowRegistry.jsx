@@ -18,6 +18,7 @@ import MailComposerWindow from "../windows/MailComposerWindow";
 import NotepadWindow from "../windows/NotepadWindow";
 import WritingWindow from "../windows/WritingWindow";
 import PostWindow from "../windows/PostWindow";
+import DateTimeWindow from "../windows/DateTimeWindow";
 
 const projectContent = Object.fromEntries(
   featuredProjects.map((project) => [
@@ -58,6 +59,7 @@ const postContent = Object.fromEntries(
 );
 
 export const windowRegistry = {
+  datetime: { ...windowMeta.datetime, Content: DateTimeWindow },
   about: { ...windowMeta.about, Content: AboutWindow },
   mybuilds: { ...windowMeta.mybuilds, Content: MyBuildsWindow },
   ...projectContent,

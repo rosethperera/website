@@ -494,6 +494,232 @@ img {
   background: none;
 }
 
+/* ============ DATE/TIME PROPERTIES DIALOG ============ */
+.dt-dialog {
+  background: #ece9d8;
+  margin: -16px -20px;
+  padding: 14px 16px 12px;
+  font-size: 12px;
+  color: #000;
+}
+.dt-tabs {
+  display: flex;
+  margin-bottom: -1px;
+  padding-left: 4px;
+}
+.dt-tab {
+  padding: 4px 14px;
+  border: 1px solid #8a8a8a;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  background: #d4d0c8;
+  margin-right: 2px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.dt-tab.active {
+  background: #ece9d8;
+  z-index: 2;
+  padding-top: 5px;
+}
+.dt-tabpanel {
+  border: 1px solid #8a8a8a;
+  background: #ece9d8;
+  padding: 14px 12px 10px;
+  position: relative;
+  z-index: 1;
+}
+.dt-date-time-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.dt-groupbox {
+  border: 1px solid #8a8a8a;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 0 #fff;
+  padding: 14px 10px 10px;
+  position: relative;
+  flex: 1 1 200px;
+}
+.dt-groupbox-label {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: #ece9d8;
+  padding: 0 4px;
+  font-size: 11px;
+}
+.dt-date-controls {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.dt-select {
+  flex: 1 1 auto;
+  font-size: 11.5px;
+  border: 1px solid #7f7f7f;
+  background: #fff;
+  padding: 2px;
+}
+.dt-spinner {
+  display: flex;
+  align-items: stretch;
+}
+.dt-year-input {
+  width: 46px;
+  font-size: 11.5px;
+  border: 1px solid #7f7f7f;
+  border-right: none;
+  padding: 2px 4px;
+}
+.dt-spinner-btns {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #7f7f7f;
+}
+.dt-spinner-btns button {
+  width: 14px;
+  height: 9px;
+  line-height: 1;
+  font-size: 7px;
+  border: none;
+  background: #ece9d8;
+  cursor: pointer;
+  padding: 0;
+}
+.dt-cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #7f9db9;
+}
+.dt-cal-table th {
+  font-weight: normal;
+  font-size: 10.5px;
+  color: #000;
+  padding: 2px 0;
+  background: #ece9d8;
+  border-bottom: 1px solid #7f9db9;
+}
+.dt-cal-table td {
+  text-align: center;
+  font-size: 11px;
+  padding: 2.5px 0;
+  cursor: default;
+}
+.dt-cal-table td.today {
+  background: #0a246a;
+  color: #fff;
+  font-weight: bold;
+}
+.dt-cal-table td.empty {
+  visibility: hidden;
+}
+.dt-clock-face {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #f4f2e8, #d8d5c4);
+  border: 1px solid #8a8a8a;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 4px auto 10px;
+}
+.dt-clock-tick {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #2f6f6a;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.dt-clock-hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  background: #444;
+  border-radius: 2px;
+}
+.dt-clock-hand-hour {
+  width: 4px;
+  height: 38px;
+  background: #222;
+}
+.dt-clock-hand-minute {
+  width: 3px;
+  height: 54px;
+  background: #333;
+}
+.dt-clock-hand-second {
+  width: 1px;
+  height: 60px;
+  background: #b03030;
+}
+.dt-clock-pivot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #222;
+  transform: translate(-50%, -50%);
+}
+.dt-digital-row {
+  display: flex;
+  justify-content: center;
+}
+.dt-digital-input {
+  width: 82px;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid #7f7f7f;
+  padding: 3px 4px;
+  background: #fff;
+}
+.dt-zone-tab {
+  min-height: 170px;
+  padding: 6px 2px;
+}
+.dt-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.dt-zone-footer {
+  font-size: 11.5px;
+  color: #222;
+  margin: 10px 0 0;
+  padding: 0 2px;
+}
+.dt-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.dt-btn {
+  min-width: 76px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border: 1px solid #7f7f7f;
+  border-radius: 2px;
+  background: #ece9d8;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #8a8a8a;
+  cursor: pointer;
+}
+.dt-btn:active {
+  box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #8a8a8a;
+}
+.dt-btn:disabled {
+  color: #999;
+  cursor: default;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #b8b4a8;
+}
+
 /* Project media gallery inside project windows */
 .project-gallery {
   display: grid;
