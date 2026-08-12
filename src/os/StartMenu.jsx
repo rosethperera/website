@@ -10,11 +10,13 @@ const MAIN_ITEMS = [
   { id: "resume", label: "Resume", icon: "📄" },
   { id: "contact", label: "Contact Me", icon: "✉️" },
   { id: "mycomputer", label: "My Computer", icon: "🖥️" },
+  { id: "datetime", label: "Date/Time Properties", icon: "🕒" },
 ];
 
 const GAME_ITEMS = [
   { id: "tetris", label: "Tetris.exe", icon: "🎮" },
   { id: "pacman", label: "Pac-Man.exe", icon: "🟡" },
+  { id: "minesweeper", label: "Minesweeper", icon: "💣" },
 ];
 
 export default function StartMenu({ onClose }) {

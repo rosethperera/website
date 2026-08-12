@@ -118,6 +118,9 @@ img {
 .ico.pacman {
   background: linear-gradient(155deg, #1a1a2e, #05050a);
 }
+.ico.minesweeper {
+  background: linear-gradient(155deg, #d4d0c8, #a8a49a);
+}
 
 /* ============ WINDOW CHROME ============ */
 .win {
@@ -492,6 +495,93 @@ img {
   border: none;
   padding: 0;
   background: none;
+}
+
+/* ============ MINESWEEPER ============ */
+.ms-window {
+  background: #c0c0c0;
+  margin: -16px -20px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.ms-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 4px 6px;
+  box-sizing: border-box;
+}
+.ms-led {
+  background: #000;
+  color: #ff2b2b;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding: 1px 4px;
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+  min-width: 44px;
+  text-align: center;
+}
+.ms-face {
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  cursor: pointer;
+  padding: 0;
+}
+.ms-face:active {
+  border-color: #808080 #fff #fff #808080;
+}
+.ms-grid {
+  display: grid;
+  gap: 0;
+  border: 3px solid;
+  border-color: #808080 #fff #fff #808080;
+  background: #c0c0c0;
+}
+.ms-cell {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ms-cell.revealed {
+  border: 1px solid #808080;
+  background: #c0c0c0;
+  cursor: default;
+}
+.ms-cell.exploded {
+  background: #ff2b2b;
+}
+.ms-hint {
+  margin: 0;
+  text-align: center;
 }
 
 /* ============ DATE/TIME PROPERTIES DIALOG ============ */
@@ -1072,6 +1162,7 @@ img {
   font-size: 11px;
   background: linear-gradient(180deg, #1c5fd0, #0d3fb0);
   height: 34px;
+  cursor: pointer;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   flex: 0 0 auto;
 }

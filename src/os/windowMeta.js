@@ -243,4 +243,16 @@ export const windowMeta = {
     menuItems: null,
     openMaximized: true,
   },
+  minesweeper: {
+    title: "Minesweeper",
+    icon: "💣",
+    width: 260,
+    height: 405,
+    minWidth: 240,
+    minHeight: 385,
+    defaultX: 380,
+    defaultY: 100,
+    statusText: "Ready",
+    menuItems: ["Game", "Help"],
+  },
 };

@@ -13,6 +13,7 @@ import MyComputerWindow from "../windows/MyComputerWindow";
 import RecycleBinWindow from "../windows/RecycleBinWindow";
 import TetrisGame from "../games/TetrisGame";
 import PacmanGame from "../games/PacmanGame";
+import MinesweeperGame from "../games/MinesweeperGame";
 import FakeBrowserWindow from "../windows/FakeBrowserWindow";
 import MailComposerWindow from "../windows/MailComposerWindow";
 import NotepadWindow from "../windows/NotepadWindow";
@@ -75,4 +76,5 @@ export const windowRegistry = {
   recyclebin: { ...windowMeta.recyclebin, Content: RecycleBinWindow },
   tetris: { ...windowMeta.tetris, Content: TetrisGame, menuItems: null },
   pacman: { ...windowMeta.pacman, Content: PacmanGame, menuItems: null },
+  minesweeper: { ...windowMeta.minesweeper, Content: MinesweeperGame },
 };
