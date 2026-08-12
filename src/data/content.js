@@ -9,7 +9,7 @@ export const profile = {
   linkedinLabel: "linkedin.com/in/roseth-perera",
   github: "https://github.com/rosethperera",
   githubLabel: "github.com/rosethperera",
-  resumePath: "./Roseth-Perera-Resume.pdf",
+  resumePath: "./Roseth-Perera-Resume.pdf?v=2026",
 };
 
 export const aboutText = [
