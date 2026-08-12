@@ -56,33 +56,36 @@ img {
   position: absolute;
   top: 22px;
   left: 16px;
+  bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 20px 18px;
   z-index: 5;
 }
 
 .dicon {
-  width: 92px;
+  width: 112px;
   text-align: center;
   cursor: pointer;
 }
 
 .dicon .ico {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 5px;
-  border-radius: 7px;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 6px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 34px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .dicon .lbl {
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.3;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
   padding: 1px 3px;
@@ -495,6 +498,44 @@ img {
   border: none;
   padding: 0;
   background: none;
+}
+
+/* ============ DESKTOP CLOCK WIDGET ============ */
+.clock-widget {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 6;
+  min-width: 150px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(10, 20, 40, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: right;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.clock-widget-time {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+.clock-widget-ampm {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+.clock-widget-date {
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: 0.88;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ============ MINESWEEPER ============ */

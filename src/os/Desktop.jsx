@@ -5,6 +5,7 @@ import Window from "./Window";
 import DesktopIcons from "./DesktopIcons";
 import Clippy from "./Clippy";
 import Taskbar from "./Taskbar";
+import DesktopClockWidget from "./DesktopClockWidget";
 import { useOpenWindow } from "./useOpenWindow";
 import { NavigationProvider } from "./NavigationContext";
 
@@ -46,6 +47,7 @@ export default function Desktop() {
     <NavigationProvider navigate={openWindow}>
       <div className="desktop">
         <DesktopIcons />
+        <DesktopClockWidget />
         <OpenWindows />
         <Clippy />
         <Taskbar />
